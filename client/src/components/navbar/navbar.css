@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(108, 108, 255);
+}
+.navbar .left-side {
+    flex: 50%;
+    justify-content: left;
+}
+.left-side a {
+    padding: 1.25rem;
+    color: #f6f6f6;
+    cursor: pointer;
+}
+.navbar .left-side a:hover {
+    color: orangered;
+}
+.navbar .right-side {
+    flex: 50%;
+    justify-content: flex-end;
+}
+.navbar .right-side a {
+    padding: 1.25rem;
+    color: #f6f6f6;
+    cursor: pointer;
+}
+.navbar .right-side a:hover {
+    color: orangered;
+}
+.navbar .right-side input {
+    font-size: 0.9rem;
+}
