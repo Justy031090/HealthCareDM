@@ -9,11 +9,14 @@
         "start": "node index.js",
         "server": "nodemon index.js",
         "client": " npm start --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "data:import": "node seeder",
+        "data:destroy": "node seeder -d"
     },
     "author": "Michael Bar",
     "license": "ISC",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "dotenv": "^14.3.2",
         "express": "^4.17.2",
         "mongoose": "^6.1.8"

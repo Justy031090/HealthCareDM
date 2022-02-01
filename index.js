@@ -1,18 +1,25 @@
 import express from 'express';
-import dummyData from './data/DummyData.js';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
+import cors from 'cors';
 
 dotenv.config();
-connectDB();
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-    res.json(dummyData);
-});
+connectDB();
+
+app.use('/api/users', users);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
+    });
+}
 const PORT = process.env.PORT || 5000;
-app.listen(
-    PORT,
-    console.log(`Server Running in ${process.env.NODE_ENV} on port ${PORT}`)
-);
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+});
