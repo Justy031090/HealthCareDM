@@ -12,9 +12,10 @@ router.get('/me', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id }).populate(
             'user',
-            ['name', 'avatar']
+            ['firstName', 'lastName', 'avatar']
         );
         if (!profile) return res.status(400).send('Profile not Found');
+        res.send(profile);
     } catch (error) {
         console.log(error.message);
         res.status(500).send('Server Error');
@@ -129,7 +130,7 @@ router.get('/user/:id', async (req, res) => {
 // @access Private
 router.delete('/', auth, async (req, res) => {
     try {
-        //TODO - remove posts
+        //@TODO - remove posts
         await Profile.findOneAndDelete({ user: req.user.id });
         await User.findOneAndDelete({ _id: req.user.id });
         res.send('Succesfully Deleted');

@@ -3,9 +3,9 @@ import dotenv from 'dotenv';
 import connectDB from './data/mongoose.js';
 import cors from 'cors';
 import users from './routes/userRoute.js';
-import auth from './routes/auth.js';
-import post from './routes/post.js';
-import profile from './routes/profile.js';
+import auth from './routes/authRoute.js';
+import post from './routes/postRoute.js';
+import profile from './routes/profileRoute.js';
 
 dotenv.config();
 
