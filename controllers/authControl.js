@@ -1,33 +1,18 @@
 import User from '../models/userModel.js';
-import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
-export const registerUser = async (req, res) => {
-    const { firstName, lastName, email, password } = req.body;
+export const login = async (req, res) => {
+    const { email, password } = req.body;
     try {
         let user = await User.findOne({ email });
-        if (user) {
-            return res.status(400).send('Email already exists');
-        }
-        const avatar = gravatar.url(email, {
-            s: '200',
-            r: 'pg',
-            d: 'mm',
-        });
+        if (!user) return res.status(400).send('Invalid Credentials');
 
-        user = new User({
-            firstName,
-            lastName,
-            email,
-            avatar,
-            password,
-        });
-        user.password = await bcrypt.hash(password, 10);
-        await user.save();
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).send('Invalid Credentials');
 
         const payload = {
             user: {
@@ -40,7 +25,7 @@ export const registerUser = async (req, res) => {
             { expiresIn: 360000 }, //CHANGE THE TOKEN IN PROD
             (error, token) => {
                 if (error) throw error;
-                res.send({ token });
+                res.send(token);
             }
         );
     } catch (error) {

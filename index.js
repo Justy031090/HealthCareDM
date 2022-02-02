@@ -1,7 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import connectDB from './config/db.js';
+import connectDB from './data/mongoose.js';
 import cors from 'cors';
+import users from './routes/userRoute.js';
+import auth from './routes/auth.js';
+import post from './routes/post.js';
+import profile from './routes/profile.js';
 
 dotenv.config();
 
@@ -11,7 +15,11 @@ app.use(cors());
 
 connectDB();
 
+//define routes
 app.use('/api/users', users);
+app.use('/api/auth', auth);
+app.use('/api/post', post);
+app.use('/api/profile', profile);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
@@ -20,6 +28,7 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });

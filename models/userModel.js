@@ -28,12 +28,15 @@ const userSchema = mongoose.Schema(
             required: true,
             default: false,
         },
+        avatar: {
+            type: String,
+        },
     },
     {
         timestamps: true,
     }
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 
 export default User;
