@@ -1,5 +1,7 @@
 import express from 'express';
 import { auth } from '../middleware/auth.js';
+import { validateRequestSchema } from '../middleware/request-validation.js';
+import { profileSchema } from '../config/validation-schema.js';
 import {
     createUpdateProfile,
     deleteProfileAndUser,
@@ -9,29 +11,28 @@ import {
 } from '../controllers/profileControl.js';
 
 const router = express.Router();
-// @route GET api/profile/me
+
 // @desc Get Current Users Profile
 // @access Private
-
 router.get('/me', auth, getMyProfile);
 
-// @route POST api/profile/
 // @desc Create or update user profile
 // @access Private
-router.post('/', auth, createUpdateProfile);
+router.post(
+    '/',
+    [auth, profileSchema, validateRequestSchema],
+    createUpdateProfile
+);
 
-// @route GET api/profile/
 // @desc Get all profiles
 // @access Public
 router.get('/', getProfiles);
 
-// @route GET api/profile/user/:id
 // @desc get specific profile
 // @access Public
-
 router.get('/user/:id', getProfileById);
-// @route DELETE api/profile/
-// @desc delete profile, user , post
+
+// @desc delete profile & user
 // @access Private
 router.delete('/', auth, deleteProfileAndUser);
 

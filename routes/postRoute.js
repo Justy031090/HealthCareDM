@@ -1,7 +1,5 @@
 import express from 'express';
 import { auth } from '../middleware/auth.js';
-import User from '../models/userModel.js';
-import Post from '../models/postModel.js';
 import {
     commentOnPost,
     createPost,

@@ -40,7 +40,7 @@ export const registerUser = async (req, res) => {
             { expiresIn: 360000 }, //CHANGE THE TOKEN IN PROD
             (error, token) => {
                 if (error) throw error;
-                res.send({ token });
+                res.status(201).send(token);
             }
         );
     } catch (error) {

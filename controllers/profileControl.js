@@ -107,8 +107,9 @@ export const getProfileById = async (req, res) => {
 };
 export const deleteProfileAndUser = async (req, res) => {
     try {
-        await Profile.findOneAndDelete({ user: req.user.id });
-        await User.findOneAndDelete({ _id: req.user.id });
+        const profile = await Profile.findOneAndRemove({ user: req.user.id });
+        const user = await User.findOneAndRemove({ _id: req.user.id });
+        if (!profile && !user) return res.status(404).send('User Not Found');
         res.send('Succesfully Deleted');
     } catch (error) {
         console.log(error.message);
