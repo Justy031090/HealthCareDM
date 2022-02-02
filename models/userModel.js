@@ -31,6 +31,16 @@ const userSchema = mongoose.Schema(
         avatar: {
             type: String,
         },
+        bolusWizzard: {
+            insulinCarbRatio: {
+                type: Number,
+                default: 0,
+            },
+            insulinSensitivity: {
+                type: Number,
+                default: 0,
+            },
+        },
     },
     {
         timestamps: true,
