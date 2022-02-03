@@ -1,16 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
 
+:root {
+    --primary-color: rgb(108, 108, 255);
+    --dark-color: #343a40;
+    --light-color: #f4f4f4;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
 }
+body {
+    background-color: var(--light-color);
+    color: var(--light-color);
+}
+
 .App {
     height: 100vh;
     width: 100vw;
 }
 
 a {
+    color: var(--primary-color);
     text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--dark-color);
+    color: #333;
+    padding: 0.4rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+}
+.alert {
+    padding: 0.8rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+    background: var(--light-color);
+    color: #333;
+}
+
+.btn-primary,
+.bg-primary,
+.badge-primary,
+.alert-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-light,
+.bg-light,
+.badge-light,
+.alert-light {
+    background: var(--light-color);
+    color: #333;
+}
+
+.btn-dark,
+.bg-dark,
+.badge-dark,
+.alert-dark {
+    background: var(--dark-color);
+    color: #fff;
+}
+
+.btn-danger,
+.bg-danger,
+.badge-danger,
+.alert-danger {
+    background: var(--danger-color);
+    color: #fff;
+}
+
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+    background: var(--success-color);
+    color: #fff;
+}
+
+.btn-white,
+.bg-white,
+.badge-white,
+.alert-white {
+    background: #fff;
+    color: #333;
+    border: #ccc solid 1px;
+}
+
+.btn:hover {
+    opacity: 0.8;
 }

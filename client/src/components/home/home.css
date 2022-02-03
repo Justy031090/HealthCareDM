@@ -1,0 +1,27 @@
+/* Landing Page */
+.landing {
+    position: relative;
+    height: 100vh;
+}
+
+.landing-inner {
+    color: var(--dark-color);
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.x-large {
+    font-size: 3rem;
+}
+.lead {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.btn-light {
+    background-color: #c4c1c1;
+}

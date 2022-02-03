@@ -1,34 +1,56 @@
-.navbar {
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+.navbar.container {
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    height: 10vh;
     background-color: rgb(108, 108, 255);
+    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.5);
 }
-.navbar .left-side {
+.navbar.left-side {
+    display: flex;
     flex: 50%;
-    justify-content: left;
+    justify-content: center;
+    margin-left: 5rem;
 }
 .left-side a {
     padding: 1.25rem;
     color: #f6f6f6;
     cursor: pointer;
 }
-.navbar .left-side a:hover {
+.navbar.left-side a:hover {
     color: orangered;
 }
-.navbar .right-side {
-    flex: 50%;
+.navbar.right-side {
+    display: flex;
+    flex: 25%;
     justify-content: flex-end;
+    margin-right: 5rem;
+    align-items: center;
 }
-.navbar .right-side a {
+.navbar.right-side a {
+    display: block;
     padding: 1.25rem;
     color: #f6f6f6;
     cursor: pointer;
 }
-.navbar .right-side a:hover {
+.navbar.right-side a:hover {
     color: orangered;
 }
-.navbar .right-side input {
+.navbar.right-side input {
     font-size: 0.9rem;
+    height: 50%;
+}
+textarea:focus,
+input:focus {
+    outline: none;
+}
+.logo {
+    flex: 25%;
+    font-family: 'Marck Script', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
 }

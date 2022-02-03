@@ -1,0 +1,43 @@
+.login-container {
+    color: var(--dark-color);
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.lead {
+    font-size: 1rem;
+}
+.form-group {
+    margin: 1.2rem 0;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form select,
+.form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
+.my-1 {
+    margin: 1rem 0;
+}
+.large {
+    font-size: 2rem;
+}
+.text-primary {
+    color: var(--primary-color);
+}
+
+.btn.btn-primary:hover {
+    color: orangered;
+    opacity: 0.9;
+}
