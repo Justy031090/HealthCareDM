@@ -1,7 +1,6 @@
 /* Landing Page */
 .landing {
-    position: relative;
-    height: 100vh;
+    height: 80vh;
 }
 
 .landing-inner {

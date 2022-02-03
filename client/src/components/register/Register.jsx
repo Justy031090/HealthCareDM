@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAlert } from '../../actions/setAlert';
 import './register.css';
 
 const Register = () => {
@@ -12,12 +14,14 @@ const Register = () => {
     });
     const { firstName, lastName, email, password, password2 } = formData;
 
+    const dispatch = useDispatch();
+
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    const submitForm = async (e) => {
+    const submitForm = (e) => {
         e.preventDefault();
         if (password !== password2) {
-            console.log('Passwords do not match');
+            dispatch(setAlert('Passwords do not match', 'danger'));
         } else {
             console.log('WOOOHOOO');
         }
@@ -63,6 +67,7 @@ const Register = () => {
                         This site uses Gravatar for easy profile image handling!
                     </small>
                 </div>
+
                 <div className="form-group">
                     <input
                         type="password"

@@ -5,17 +5,17 @@
     border: none;
     display: flex;
     align-items: center;
-    height: 10vh;
+    justify-content: space-between;
     background-color: rgb(108, 108, 255);
     box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.5);
 }
 .navbar.left-side {
     display: flex;
-    flex: 50%;
-    justify-content: center;
+    justify-content: flex-end;
     margin-left: 5rem;
 }
 .left-side a {
+    width: inherit;
     padding: 1.25rem;
     color: #f6f6f6;
     cursor: pointer;
@@ -25,13 +25,14 @@
 }
 .navbar.right-side {
     display: flex;
-    flex: 25%;
-    justify-content: flex-end;
-    margin-right: 5rem;
+    margin-left: 5rem;
+    margin-right: 3rem;
     align-items: center;
+    justify-content: flex-start;
 }
 .navbar.right-side a {
     display: block;
+    width: inherit;
     padding: 1.25rem;
     color: #f6f6f6;
     cursor: pointer;
@@ -48,7 +49,7 @@ input:focus {
     outline: none;
 }
 .logo {
-    flex: 25%;
+    display: block;
     font-family: 'Marck Script', cursive;
     font-size: 2rem;
     font-weight: bold;

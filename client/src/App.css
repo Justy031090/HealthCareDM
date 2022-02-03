@@ -46,6 +46,7 @@ a {
     opacity: 0.9;
     background: var(--light-color);
     color: #333;
+    text-align: center;
 }
 
 .btn-primary,
