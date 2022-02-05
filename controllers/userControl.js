@@ -11,7 +11,7 @@ export const registerUser = async (req, res) => {
     try {
         let user = await User.findOne({ email });
         if (user) {
-            return res.status(400).send('Email already exists');
+            return res.status(400).send([{ msg: 'User already exists' }]);
         }
         const avatar = gravatar.url(email, {
             s: '200',
@@ -30,19 +30,19 @@ export const registerUser = async (req, res) => {
         await user.save();
 
         const payload = {
-            user: {
-                id: user.id,
-            },
+            id: user.id,
         };
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: 360000 }, //CHANGE THE TOKEN IN PROD
-            (error, token) => {
-                if (error) throw error;
-                res.status(201).send(token);
-            }
-        );
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+            expiresIn: '30d',
+        });
+        res.json({
+            _id: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            token,
+        });
     } catch (error) {
         console.log(error.message);
         res.status(500).send('Server Error');

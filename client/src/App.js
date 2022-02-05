@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, NotFound, Home, Login, Register, Alert } from './components/';
+
 function App() {
     return (
         <Router>

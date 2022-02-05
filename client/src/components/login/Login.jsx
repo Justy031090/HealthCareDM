@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../actions/loginAction';
 import './login.css';
 
 const Login = () => {
@@ -9,16 +11,33 @@ const Login = () => {
     });
     const { email, password } = formData;
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const dispatch = useDispatch();
+
+    const redirect = location.search ? location.search.split('=')[1] : '/';
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { loading, userInfo } = userLogin;
+
+    useEffect(() => {
+        if (userInfo) {
+            navigate(redirect);
+        }
+    }, [userInfo, navigate, redirect]);
+
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
+
     const submitForm = async (e) => {
         e.preventDefault();
-        console.log('WOOOHOOO');
+        dispatch(login(email, password));
     };
 
     return (
         <div className="login-container">
             <h2 className="large text-primary">Sign In</h2>
+            {loading && <div>Loading...</div>}
             <p className="lead">
                 <i className="fas fa-user"></i> Sign Into Your Account
             </p>

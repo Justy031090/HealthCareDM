@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(108, 108, 255);
+    background-color: var(--primary-color);
     box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.5);
 }
 .navbar.left-side {
@@ -54,4 +54,14 @@ input:focus {
     font-size: 2rem;
     font-weight: bold;
     margin-left: 0.5rem;
+}
+.login,
+.logout {
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+.login:hover,
+.logout:hover {
+    cursor: pointer;
+    color: orangered;
 }

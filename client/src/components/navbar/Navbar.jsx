@@ -1,7 +1,18 @@
 import React from 'react';
 import './navbar.css';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../actions/loginAction';
+
 const Navbar = () => {
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const logoutHandler = () => {
+        dispatch(logout());
+    };
     return (
         <nav className="navbar container">
             <p className="navbar logo">m.Care</p>
@@ -17,7 +28,15 @@ const Navbar = () => {
                     placeholder="Search..."
                     className="nav-input"
                 />
-                <Link to="/login">Login</Link>
+                {userInfo ? (
+                    <div className="logout" onClick={logoutHandler}>
+                        Logout
+                    </div>
+                ) : (
+                    <div className="login" onClick={() => navigate('/login')}>
+                        Login
+                    </div>
+                )}
             </div>
         </nav>
     );

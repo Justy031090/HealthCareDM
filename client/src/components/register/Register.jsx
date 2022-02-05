@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAlert } from '../../actions/setAlert';
+import { register } from '../../actions/registerAction';
 import './register.css';
 
 const Register = () => {
@@ -15,6 +16,8 @@ const Register = () => {
     const { firstName, lastName, email, password, password2 } = formData;
 
     const dispatch = useDispatch();
+    const userRegister = useSelector((state) => state.userRegister);
+    const { loading } = userRegister;
 
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,13 +26,14 @@ const Register = () => {
         if (password !== password2) {
             dispatch(setAlert('Passwords do not match', 'danger'));
         } else {
-            console.log('WOOOHOOO');
+            dispatch(register(firstName, lastName, email, password));
         }
     };
 
     return (
         <div className="register-container">
             <h2 className="large text-primary">Sign Up</h2>
+            {loading && <div>Loading...</div>}
             <p className="lead">
                 <i className="fas fa-user"></i> Create Your Account
             </p>
@@ -39,7 +43,6 @@ const Register = () => {
                         type="text"
                         placeholder="First Name"
                         name="firstName"
-                        required
                         value={firstName}
                         onChange={(e) => onChange(e)}
                     />
@@ -49,7 +52,6 @@ const Register = () => {
                         type="text"
                         placeholder="Last Name"
                         name="lastName"
-                        required
                         value={lastName}
                         onChange={(e) => onChange(e)}
                     />
@@ -59,7 +61,6 @@ const Register = () => {
                         type="email"
                         placeholder="Email Address"
                         name="email"
-                        required
                         value={email}
                         onChange={(e) => onChange(e)}
                     />
@@ -73,8 +74,6 @@ const Register = () => {
                         type="password"
                         placeholder="Password"
                         name="password"
-                        minLength="6"
-                        required
                         value={password}
                         onChange={(e) => onChange(e)}
                     />
@@ -84,8 +83,6 @@ const Register = () => {
                         type="password"
                         placeholder="Confirm Password"
                         name="password2"
-                        minLength="6"
-                        required
                         value={password2}
                         onChange={(e) => onChange(e)}
                     />

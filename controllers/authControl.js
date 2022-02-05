@@ -9,27 +9,31 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     try {
         let user = await User.findOne({ email });
-        if (!user) return res.status(400).send('Invalid Credentials');
+        if (!user)
+            return res.status(400).send([{ msg: 'Invalid Credentials' }]);
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).send('Invalid Credentials');
+        if (!isMatch)
+            return res.status(400).send([{ msg: 'Invalid Credentials' }]);
 
         const payload = {
             user: {
                 id: user.id,
             },
         };
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: 360000 }, //CHANGE THE TOKEN IN PROD
-            (error, token) => {
-                if (error) throw error;
-                res.send(token);
-            }
-        );
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+            expiresIn: '30d',
+        });
+
+        res.json({
+            _id: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            token,
+        });
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
