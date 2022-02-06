@@ -16,7 +16,6 @@ export const getMyProfile = async (req, res) => {
     }
 };
 export const createUpdateProfile = async (req, res) => {
-    ///CHECK needed
     const {
         company,
         status,
@@ -25,22 +24,22 @@ export const createUpdateProfile = async (req, res) => {
         instagram,
         facebook,
         twitter,
-        school,
-        degree,
         fieldOfStudy,
         description,
         insulinCarbRatio,
         insulinSensitivity,
         website,
         location,
+        bio,
     } = req.body;
     const profileFields = {};
     profileFields.user = req.user.id;
-
+    if (!status) return res.status(400).send([{ msg: 'Status is Required' }]);
     profileFields.status = status;
     if (company) profileFields.company = company;
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
+    if (bio) profileFields.bio = bio;
 
     profileFields.social = {};
     if (youtube) profileFields.social.youtube = youtube;
@@ -50,8 +49,6 @@ export const createUpdateProfile = async (req, res) => {
     if (linkedin) profileFields.social.linkedin = linkedin;
 
     profileFields.education = {};
-    if (school) profileFields.education.school = school;
-    if (degree) profileFields.education.degree = degree;
     if (fieldOfStudy) profileFields.education.fieldOfStudy = fieldOfStudy;
     if (description) profileFields.education.description = description;
 
@@ -71,17 +68,15 @@ export const createUpdateProfile = async (req, res) => {
                 { user: id },
                 { $set: profileFields },
                 { new: true }
-            );
-            return res.send(profile);
+            ).populate('user', ['firstName', 'lastName', 'avatar']);
+            return res.json(profile);
         }
 
         //create a profile
         profile = new Profile(profileFields);
-
         await profile.save();
-        res.status(201).send(profile);
+        res.status(201).json(profile);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };

@@ -14,14 +14,6 @@ const ProfileSchema = mongoose.Schema(
             required: true,
         },
         education: {
-            school: {
-                type: String,
-                trim: true,
-            },
-            degree: {
-                type: String,
-                trim: true,
-            },
             fieldOfStudy: {
                 type: String,
                 trim: true,
@@ -70,6 +62,9 @@ const ProfileSchema = mongoose.Schema(
         location: {
             type: String,
             trim: true,
+        },
+        bio: {
+            type: String,
         },
     },
     { timestamps: true }

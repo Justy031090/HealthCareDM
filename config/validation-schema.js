@@ -9,6 +9,4 @@ export const registerSchema = [
     }),
 ];
 
-export const profileSchema = [
-    check('status', 'Status is required').notEmpty().isLength({ min: 4 }),
-];
+export const profileSchema = [check('status', 'Status is required').notEmpty()];

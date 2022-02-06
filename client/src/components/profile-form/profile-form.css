@@ -1,7 +1,7 @@
 .create-profile-container {
     color: var(--dark-color);
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 1rem;
     display: flex;
@@ -10,9 +10,14 @@
     justify-content: center;
     text-align: center;
 }
-
+.form {
+    width: 40%;
+}
 .lead {
     font-size: 1rem;
+}
+.form .form-group {
+    margin: 1.2rem 0;
 }
 
 .btn-light {
@@ -50,5 +55,12 @@
     padding: 0.4rem;
     font-size: 1.2rem;
     border: 1px solid #ccc;
+}
+.form textarea {
     resize: none;
+    height: 10em;
+}
+.social-div,
+.wizard-div {
+    margin: 2rem;
 }

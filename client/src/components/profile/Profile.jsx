@@ -15,9 +15,8 @@ const Profile = () => {
     const { loading, profile } = userDetails;
 
     useEffect(() => {
-        if (!userInfo) {
-            return navigate('/login');
-        }
+        if (!userInfo) return navigate('/login');
+
         dispatch(getUserDetails());
     }, [userInfo, navigate, dispatch]);
 
