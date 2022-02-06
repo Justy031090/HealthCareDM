@@ -5,6 +5,7 @@ import {
     USER_LOGIN_SUCCESS,
     USER_LOGOUT,
 } from '../constants/auth';
+import { CLEAR_PROFILE } from '../constants/userDetails';
 import { setAlert } from './setAlert';
 
 export const login = (email, password) => async (dispatch) => {
@@ -44,5 +45,6 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     localStorage.removeItem('userInfo');
+    dispatch({ type: CLEAR_PROFILE });
     dispatch({ type: USER_LOGOUT });
 };

@@ -1,6 +1,15 @@
 import './App.css';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NotFound, Home, Login, Register, Alert } from './components/';
+import {
+    Navbar,
+    NotFound,
+    Home,
+    Login,
+    Register,
+    Alert,
+    Profile,
+    ProfileForm,
+} from './components/';
 
 function App() {
     return (
@@ -11,6 +20,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/update-profile" element={<ProfileForm />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

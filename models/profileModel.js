@@ -53,6 +53,24 @@ const ProfileSchema = mongoose.Schema(
                 trim: true,
             },
         },
+        bolusWizzard: {
+            insulinCarbRatio: {
+                type: Number,
+                default: 0,
+            },
+            insulinSensitivity: {
+                type: Number,
+                default: 0,
+            },
+        },
+        website: {
+            type: String,
+            trim: true,
+        },
+        location: {
+            type: String,
+            trim: true,
+        },
     },
     { timestamps: true }
 );

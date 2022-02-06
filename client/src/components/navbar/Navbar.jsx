@@ -12,6 +12,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const logoutHandler = () => {
         dispatch(logout());
+        navigate('/');
     };
     return (
         <nav className="navbar container">
@@ -29,8 +30,15 @@ const Navbar = () => {
                     className="nav-input"
                 />
                 {userInfo ? (
-                    <div className="logout" onClick={logoutHandler}>
-                        Logout
+                    <div className="user-info">
+                        <div className="logout" onClick={logoutHandler}>
+                            {userInfo.firstName[0].toUpperCase() +
+                                userInfo.firstName.substring(1)}
+                            <small className="small">Logout(dropdown)</small>
+                        </div>
+                        <div className="profile">
+                            <Link to="/profile">Profile</Link>
+                        </div>
                     </div>
                 ) : (
                     <div className="login" onClick={() => navigate('/login')}>

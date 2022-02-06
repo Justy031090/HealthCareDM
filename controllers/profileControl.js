@@ -7,7 +7,8 @@ export const getMyProfile = async (req, res) => {
             'user',
             ['firstName', 'lastName', 'avatar']
         );
-        if (!profile) return res.status(400).send('Profile not Found');
+        if (!profile)
+            return res.status(400).send([{ msg: 'Profile not Found' }]);
         res.send(profile);
     } catch (error) {
         console.log(error.message);
@@ -19,7 +20,6 @@ export const createUpdateProfile = async (req, res) => {
     const {
         company,
         status,
-        education,
         linkedin,
         youtube,
         instagram,
@@ -29,12 +29,18 @@ export const createUpdateProfile = async (req, res) => {
         degree,
         fieldOfStudy,
         description,
+        insulinCarbRatio,
+        insulinSensitivity,
+        website,
+        location,
     } = req.body;
     const profileFields = {};
     profileFields.user = req.user.id;
 
     profileFields.status = status;
     if (company) profileFields.company = company;
+    if (website) profileFields.website = website;
+    if (location) profileFields.location = location;
 
     profileFields.social = {};
     if (youtube) profileFields.social.youtube = youtube;
@@ -48,6 +54,12 @@ export const createUpdateProfile = async (req, res) => {
     if (degree) profileFields.education.degree = degree;
     if (fieldOfStudy) profileFields.education.fieldOfStudy = fieldOfStudy;
     if (description) profileFields.education.description = description;
+
+    profileFields.bolusWizzard = {};
+    if (insulinCarbRatio)
+        profileFields.bolusWizzard.insulinCarbRatio = insulinCarbRatio;
+    if (insulinSensitivity)
+        profileFields.bolusWizzard.insulinSensitivity = insulinSensitivity;
 
     try {
         const { id } = req.user;

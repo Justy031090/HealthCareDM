@@ -59,9 +59,18 @@ input:focus {
 .logout {
     margin-left: 1rem;
     margin-right: 2rem;
+    text-align: center;
 }
 .login:hover,
 .logout:hover {
     cursor: pointer;
     color: orangered;
+}
+.small {
+    display: block;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
