@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { getUserDetails } from '../../actions/userDetailsAction';
+import ProfileTop from '../profile-id/ProfileTop';
+import ProfileAbout from '../profile-id/ProfileAbout';
+
 import './profile.css';
 
 const Profile = () => {
@@ -21,19 +24,16 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            {profile ? (
-                <h2 className="large text-primary">
-                    <i className="fas fa-user"> </i>{' '}
-                    {userInfo.firstName[0].toUpperCase() +
-                        userInfo.firstName.substring(1)}
-                </h2>
-            ) : (
-                <h2 className="large text-primary">
-                    <i className="fas fa-user"> </i> Welcome
-                </h2>
-            )}
-            {loading && <div>Loading...</div>}
-            <p className="lead">HELLO SOMETHING IS WRITTEN HERE </p>
+            <div className="info-container">
+                {profile === null || loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <div className="profile-grid">
+                        <ProfileTop profile={profile} />
+                        <ProfileAbout profile={profile} />
+                    </div>
+                )}
+            </div>
             <Link to="/update-profile" className="btn btn-primary">
                 Update Profile
             </Link>

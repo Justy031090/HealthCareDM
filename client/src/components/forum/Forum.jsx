@@ -8,6 +8,9 @@ const Forum = () => {
             <Link to="/profiles" className="btn btn-primary">
                 Profiles
             </Link>
+            <Link to="/forum/posts" className="btn btn-primary">
+                Posts
+            </Link>
         </div>
     );
 };

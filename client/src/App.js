@@ -12,6 +12,7 @@ import {
     Profiles,
     ProfileById,
     Forum,
+    Posts,
 } from './components/';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/profiles/:id" element={<ProfileById />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/forum" element={<Forum />} />
+                <Route path="/forum/posts" element={<Posts />} />
                 <Route path="/update-profile" element={<ProfileForm />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

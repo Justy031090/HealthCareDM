@@ -6,6 +6,7 @@ import { userLoginReducer } from './reducers/loginReducer';
 import { userRegisterReducer } from './reducers/registerReducer';
 import { userDetailsReducer } from './reducers/userDetailsReducer';
 import { getProfilesReducer } from './reducers/profilesReducer';
+import { getPostsReducer } from './reducers/postReducer';
 
 const reducer = combineReducers({
     alerts: alertReducer,
@@ -13,6 +14,7 @@ const reducer = combineReducers({
     userLogin: userLoginReducer,
     userDetails: userDetailsReducer,
     profiles: getProfilesReducer,
+    post: getPostsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
@@ -20,7 +22,7 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
     : null;
 const userProfileFromStorage = localStorage.getItem('userProfile')
     ? JSON.parse(localStorage.getItem('userInfo'))
-    : null;
+    : {};
 
 const initialState = {
     userLogin: { userInfo: userInfoFromStorage },

@@ -75,7 +75,7 @@ export const createUpdateProfile = async (req, res) => {
         await profile.save();
         res.status(201).json(profile);
     } catch (error) {
-        res.status(500).send('Server Error');
+        res.status(500).send([{ msg: 'Server Error' }]);
     }
 };
 export const getProfiles = async (req, res) => {
@@ -98,7 +98,7 @@ export const getProfileById = async (req, res) => {
             'lastName',
             'avatar',
         ]);
-        if (!profile) return res.status(400).send('Profile not Found');
+        if (!profile) return res.status(400).send('Profile Is Empty');
         res.send(profile);
     } catch (error) {
         if (error.kind === 'ObjectId') {

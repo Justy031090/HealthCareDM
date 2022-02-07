@@ -21,7 +21,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        const { data } = await axios.get('/api/profile/me', config);
+        const { data } = await axios.get('/api/profile/me', {}, config);
         dispatch({
             type: USER_DETAILS_SUCCESS,
             payload: data,
@@ -58,6 +58,7 @@ export const createUpdateProfile = (body) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.post('/api/profile', body, config);
+        if (!data) dispatch(setAlert('Your Pofile Is Empty'));
 
         dispatch({
             type: USER_DETAILS_SUCCESS,

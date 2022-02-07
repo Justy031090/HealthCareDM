@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAlert } from '../../actions/setAlert';
 import { register } from '../../actions/registerAction';
@@ -15,10 +15,23 @@ const Register = () => {
     });
     const { firstName, lastName, email, password, password2 } = formData;
 
+    const navigate = useNavigate();
+    const location = useLocation();
     const dispatch = useDispatch();
+
     const userRegister = useSelector((state) => state.userRegister);
     const { loading } = userRegister;
 
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
+    const redirect = location.search ? location.search.split('=')[1] : '/';
+
+    useEffect(() => {
+        if (userInfo) {
+            navigate(redirect);
+        }
+    }, [userInfo, navigate, redirect]);
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
     const submitForm = (e) => {

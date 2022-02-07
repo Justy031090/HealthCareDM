@@ -1,14 +1,15 @@
 import React from 'react';
 
-const ProfileAbout = ({ profile: { bio, user } }) => {
+const ProfileAbout = ({ profile }) => {
     return (
         <div className="profile-about bg-light">
-            {bio && (
+            {profile?.bio && (
                 <div className="bio">
                     <h2 className="text-primary">
-                        {user?.firstName} {user?.lastName}'s Bio
+                        {profile?.user?.firstName} {profile?.user?.lastName}'s
+                        Bio
                     </h2>
-                    <p className="lead">{bio}</p>
+                    <p className="lead">{profile?.bio}</p>
                     <div className="line"></div>
                 </div>
             )}

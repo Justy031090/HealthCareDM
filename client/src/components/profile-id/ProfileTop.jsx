@@ -1,31 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProfileTop = ({
-    profile: { status, company, location, social, website, user },
-}) => {
+const ProfileTop = ({ profile }) => {
     return (
         <div className="profile-top bg-primary">
-            <img className="round-img" src={user?.avatar} alt="Not Found" />
+            <img
+                className="round-img"
+                src={profile?.user?.avatar}
+                alt="Not Found"
+            />
             <h1 className="large">
-                {user?.firstName} {user?.lastName}
+                {profile?.user?.firstName} {profile?.user?.lastName}
             </h1>
-            {status && <p className="lead">{status}</p>}
-            {company && <p className="lead">{company}</p>}
-            {location && <p className="lead">{location}</p>}
+            {profile?.status && <p className="lead">{profile?.status}</p>}
+            {profile?.company && <p className="lead">{profile?.company}</p>}
+            {profile?.location && <p className="lead">{profile?.location}</p>}
             <div className="social">
-                {website && (
+                {profile?.website && (
                     <Link
-                        to={website}
+                        to={profile?.website}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="fas fa-globe fa-2x"></i>
                     </Link>
                 )}
-                {social && social.twitter && (
+                {profile?.social && profile?.social?.twitter && (
                     <Link
-                        to={social.twitter}
+                        to={profile.social.twitter}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -33,9 +35,9 @@ const ProfileTop = ({
                     </Link>
                 )}
 
-                {social && social.facebook && (
+                {profile?.social && profile?.social?.facebook && (
                     <Link
-                        to={social.facebook}
+                        to={profile.social.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -43,27 +45,27 @@ const ProfileTop = ({
                     </Link>
                 )}
 
-                {social && social.linkedin && (
+                {profile?.social && profile?.social?.linkedin && (
                     <Link
-                        to={social.linkedin}
+                        to={profile.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="fab fa-linkedin fa-2x"></i>
                     </Link>
                 )}
-                {social && social.instagram && (
+                {profile?.social && profile?.social?.instagram && (
                     <Link
-                        to={social.instagram}
+                        to={profile.social.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="fab fa-instagram fa-2x"></i>
                     </Link>
                 )}
-                {social && social.youtube && (
+                {profile?.social && profile?.social?.youtube && (
                     <Link
-                        to={social.youtube}
+                        to={profile.social.youtube}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
