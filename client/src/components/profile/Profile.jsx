@@ -16,16 +16,15 @@ const Profile = () => {
 
     useEffect(() => {
         if (!userInfo) return navigate('/login');
-
         dispatch(getUserDetails());
     }, [userInfo, navigate, dispatch]);
 
     return (
         <div className="profile-container">
-            {profile?.user ? (
+            {profile ? (
                 <h2 className="large text-primary">
                     <i className="fas fa-user"> </i>{' '}
-                    {profile.user.firstName[0].toUpperCase() +
+                    {userInfo.firstName[0].toUpperCase() +
                         userInfo.firstName.substring(1)}
                 </h2>
             ) : (

@@ -8,5 +8,3 @@ export const registerSchema = [
         min: 6,
     }),
 ];
-
-export const profileSchema = [check('status', 'Status is required').notEmpty()];

@@ -101,3 +101,6 @@ a {
 .btn:hover {
     opacity: 0.8;
 }
+hr {
+    color: black;
+}

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { createUpdateProfile } from '../../actions/userDetailsAction';
 import './profile-form.css';
-import { setAlert } from '../../actions/setAlert';
 
 let initialState = {
     company: '',
@@ -50,9 +49,6 @@ const ProfileForm = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        if ([e.target.name] === 'status' && e.target.value === '0')
-            return dispatch(setAlert('Status is Required', 'danger'));
-
         dispatch(createUpdateProfile(formData));
         window.scrollTo(0, 0);
         setFormData(initialState);
@@ -151,7 +147,8 @@ const ProfileForm = () => {
                     <div>
                         <div className="form-group">
                             <input
-                                type="text"
+                                type="number"
+                                min="0"
                                 placeholder="Insulin Sensitivity"
                                 name="insulinSensitivity"
                                 value={insulinSensitivity}
@@ -164,7 +161,8 @@ const ProfileForm = () => {
                         </div>
                         <div className="form-group">
                             <input
-                                type="text"
+                                type="number"
+                                min="0"
                                 placeholder="Insulin-Card Ratio"
                                 name="insulinCarbRatio"
                                 value={insulinCarbRatio}

@@ -17,7 +17,6 @@ export const createPost = async (req, res) => {
 
         res.send(post);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -26,7 +25,6 @@ export const getPosts = async (req, res) => {
         const posts = await Post.find().sort({ date: -1 });
         res.send(posts);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -37,7 +35,6 @@ export const getPostById = async (req, res) => {
         if (!post) return res.status(404).send('Post not Found');
         res.send(post);
     } catch (error) {
-        console.log(error.message);
         if (error.kind === 'ObjectId')
             return res.status(404).send('Post not Found');
         res.status(500).send('Server Error');
@@ -53,7 +50,6 @@ export const deletePostById = async (req, res) => {
         await post.remove();
         res.send('Post Removed');
     } catch (error) {
-        console.log(error.message);
         if (error.kind === 'ObjectId')
             return res.status(404).send('Post not Found');
         res.status(500).send('Server Error');
@@ -73,7 +69,6 @@ export const likePost = async (req, res) => {
         await post.save();
         res.send(post.likes);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -95,7 +90,6 @@ export const unlikePost = async (req, res) => {
         await post.save();
         res.send(post.likes);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -116,7 +110,6 @@ export const commentOnPost = async (req, res) => {
         await post.save();
         res.send(post.comments);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -138,7 +131,6 @@ export const deleteComment = async (req, res) => {
         await post.save();
         res.send(post.comments);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -156,7 +148,6 @@ export const editComment = async (req, res) => {
         await post.save();
         res.send(post.comments);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };

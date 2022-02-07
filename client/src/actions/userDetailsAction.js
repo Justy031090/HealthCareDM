@@ -26,6 +26,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
             type: USER_DETAILS_SUCCESS,
             payload: data,
         });
+        localStorage.setItem('userProfile', JSON.stringify(data));
     } catch (error) {
         const errors = error.response.data;
         if (errors) {
@@ -62,7 +63,8 @@ export const createUpdateProfile = (body) => async (dispatch, getState) => {
             type: USER_DETAILS_SUCCESS,
             payload: data,
         });
-        dispatch(setAlert('Profile has been Updated', 'success'));
+        localStorage.setItem('userProfile', JSON.stringify(data));
+        dispatch(setAlert('Profile has been Updated', 'success', 2000));
     } catch (error) {
         const errors = error.response.data;
         if (errors) {

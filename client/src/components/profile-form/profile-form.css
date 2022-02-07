@@ -48,6 +48,7 @@
     color: #0077b5;
 }
 .form input[type='text'],
+.form input[type='number'],
 .form select,
 .form textarea {
     display: block;

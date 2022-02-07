@@ -6,3 +6,6 @@ export { default as Login } from './login/Login';
 export { default as Alert } from './Alert';
 export { default as Profile } from './profile/Profile';
 export { default as ProfileForm } from './profile-form/ProfileForm';
+export { default as Profiles } from './profiles/Profiles';
+export { default as Forum } from './forum/Forum';
+export { default as ProfileById } from './profile-id/ProfileById';

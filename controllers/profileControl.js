@@ -11,7 +11,6 @@ export const getMyProfile = async (req, res) => {
             return res.status(400).send([{ msg: 'Profile not Found' }]);
         res.send(profile);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
@@ -34,7 +33,6 @@ export const createUpdateProfile = async (req, res) => {
     } = req.body;
     const profileFields = {};
     profileFields.user = req.user.id;
-    if (!status) return res.status(400).send([{ msg: 'Status is Required' }]);
     profileFields.status = status;
     if (company) profileFields.company = company;
     if (website) profileFields.website = website;
@@ -89,13 +87,11 @@ export const getProfiles = async (req, res) => {
         ]);
         res.send(profiles);
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };
 export const getProfileById = async (req, res) => {
     const { id } = req.params;
-    console.log(id);
     try {
         const profile = await Profile.findOne({ user: id }).populate('user', [
             'firstName',
@@ -105,7 +101,6 @@ export const getProfileById = async (req, res) => {
         if (!profile) return res.status(400).send('Profile not Found');
         res.send(profile);
     } catch (error) {
-        console.log(error.message);
         if (error.kind === 'ObjectId') {
             return res.status(400).send('Profile not Found');
         }
@@ -119,7 +114,6 @@ export const deleteProfileAndUser = async (req, res) => {
         if (!profile && !user) return res.status(404).send('User Not Found');
         res.send('Succesfully Deleted');
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };

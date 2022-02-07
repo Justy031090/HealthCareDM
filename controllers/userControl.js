@@ -44,7 +44,6 @@ export const registerUser = async (req, res) => {
             token,
         });
     } catch (error) {
-        console.log(error.message);
         res.status(500).send('Server Error');
     }
 };

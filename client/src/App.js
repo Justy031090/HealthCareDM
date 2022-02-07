@@ -9,6 +9,9 @@ import {
     Alert,
     Profile,
     ProfileForm,
+    Profiles,
+    ProfileById,
+    Forum,
 } from './components/';
 
 function App() {
@@ -20,7 +23,10 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profiles" element={<Profiles />} />
+                <Route path="/profiles/:id" element={<ProfileById />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/forum" element={<Forum />} />
                 <Route path="/update-profile" element={<ProfileForm />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

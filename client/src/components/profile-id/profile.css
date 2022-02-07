@@ -1,0 +1,49 @@
+.social .fas,
+.social .fa,
+.social .fab {
+    padding: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.fas:hover,
+.fa:hover,
+.fab:hover {
+    color: var(--dark-color);
+}
+
+.profile-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.profile-top img {
+    width: 250px;
+}
+.profile-about {
+    text-align: center;
+    margin-top: 1rem;
+}
+.education {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.fa-check {
+    color: var(--dark-color);
+    margin-left: 1rem;
+}
+.bio,
+.education {
+    margin-top: 1rem;
+}
+.line {
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem 0;
+}

@@ -11,7 +11,6 @@ const ProfileSchema = mongoose.Schema(
         },
         status: {
             type: String,
-            required: true,
         },
         education: {
             fieldOfStudy: {

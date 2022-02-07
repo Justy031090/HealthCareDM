@@ -1,7 +1,5 @@
 import express from 'express';
 import { auth } from '../middleware/auth.js';
-import { validateRequestSchema } from '../middleware/request-validation.js';
-import { profileSchema } from '../config/validation-schema.js';
 import {
     createUpdateProfile,
     deleteProfileAndUser,
@@ -18,11 +16,7 @@ router.get('/me', auth, getMyProfile);
 
 // @desc Create or update user profile
 // @access Private
-router.post(
-    '/',
-    [auth, profileSchema, validateRequestSchema],
-    createUpdateProfile
-);
+router.post('/', auth, createUpdateProfile);
 
 // @desc Get all profiles
 // @access Public
