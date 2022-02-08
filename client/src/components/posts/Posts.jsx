@@ -29,7 +29,7 @@ const Posts = () => {
                 <i className="fas fa-user"></i>Welcome To Our Community
             </p>
             <div className="posts">
-                {posts.map((post) => {
+                {posts?.map((post) => {
                     return <PostItem key={post._id} post={post} />;
                 })}
             </div>

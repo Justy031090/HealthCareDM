@@ -54,9 +54,11 @@ export const deletePostById = async (req, res) => {
     }
 };
 export const likePost = async (req, res) => {
+    console.log(req.params);
     const { id } = req.params;
     try {
         const post = await Post.findById(id);
+        console.log(post);
         if (
             post.likes.filter((like) => like.user.toString() === req.user.id)
                 .length > 0

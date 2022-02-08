@@ -29,7 +29,7 @@ export const getPostsReducer = (state = initialState, action) => {
                 ),
             };
         case LIKE_ERROR:
-            return { loading: false };
+            return { ...state, loading: false };
         default:
             return state;
     }

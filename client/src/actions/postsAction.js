@@ -44,6 +44,7 @@ export const getPosts = () => async (dispatch, getState) => {
 };
 
 export const addLike = (id) => async (dispatch, getState) => {
+    console.log('hi from addLike');
     try {
         const {
             userLogin: { userInfo },
@@ -51,17 +52,16 @@ export const addLike = (id) => async (dispatch, getState) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json',
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        const { data } = await axios.put(`/api/post/like/${id}`, config);
+        const { data } = await axios.put(`/api/post/like/${id}`, {}, config);
         dispatch({
             type: UPDATE_LIKES,
             payload: { id, likes: data },
         });
     } catch (error) {
-        const errors = error.response;
+        const errors = error.response?.data;
         if (errors) {
             errors.forEach((error) => {
                 dispatch(setAlert(error.msg, 'danger'));
@@ -86,14 +86,14 @@ export const removeLike = (id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        const { data } = await axios.put(`/api/post/unlike/${id}`, config);
+        const { data } = await axios.put(`/api/post/unlike/${id}`, {}, config);
 
         dispatch({
             type: UPDATE_LIKES,
             payload: { id, likes: data },
         });
     } catch (error) {
-        const errors = await error.response.data;
+        const errors = await error.response?.data;
         if (errors) {
             errors.forEach((error) => {
                 dispatch(setAlert(error.msg, 'danger'));

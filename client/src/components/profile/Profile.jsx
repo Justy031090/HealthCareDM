@@ -22,6 +22,7 @@ const Profile = () => {
         dispatch(getUserDetails());
     }, [userInfo, navigate, dispatch]);
 
+    console.log(profile, loading);
     return (
         <div className="profile-container">
             <div className="info-container">

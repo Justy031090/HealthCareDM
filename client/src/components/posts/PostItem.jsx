@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLike, removeLike } from '../../actions/postsAction';
+
 // import { useEffect } from 'react';
 
 const PostItem = ({ post }) => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
@@ -31,7 +32,7 @@ const PostItem = ({ post }) => {
                 <button
                     type="button"
                     className="btn btn-light"
-                    onClick={addLike(post._id)}
+                    onClick={() => dispatch(addLike(post._id))}
                 >
                     <i className="fas fa-thumbs-up"></i>{' '}
                     {post?.likes.length > 0 && (
@@ -41,7 +42,7 @@ const PostItem = ({ post }) => {
                 <button
                     type="button"
                     className="btn btn-light"
-                    onClick={removeLike(post._id)}
+                    onClick={() => dispatch(removeLike(post._id))}
                 >
                     <i className="fas fa-thumbs-down"></i>
                 </button>

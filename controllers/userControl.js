@@ -30,7 +30,7 @@ export const registerUser = async (req, res) => {
         await user.save();
 
         const payload = {
-            id: user.id,
+            user: { id: user.id },
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: '30d',

@@ -10,6 +10,7 @@ import { setAlert } from './setAlert';
 export const register =
     (firstName, lastName, email, password) => async (dispatch) => {
         try {
+            console.log('heelo from register');
             dispatch({
                 type: USER_REGISTER_REQUEST,
             });
@@ -31,10 +32,12 @@ export const register =
                 type: USER_REGISTER_SUCCESS,
                 payload: data,
             });
+
             dispatch({
                 type: USER_LOGIN_SUCCESS,
                 payload: data,
             });
+            console.log(data);
             localStorage.setItem('userInfo', JSON.stringify(data));
         } catch (error) {
             const errors = error.response.data;

@@ -32,7 +32,7 @@ export const userDetailsReducer = (state = { profile: {} }, action) => {
         case USER_DETAILS_SUCCESS:
             return { ...state, loading: false, profile: payload };
         case USER_DETAILS_FAIL:
-            return { loading: false, error: payload };
+            return { ...state, loading: false, error: payload };
         case CLEAR_PROFILE:
             return {};
         default:

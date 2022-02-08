@@ -9,7 +9,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getUserDetails());
-    });
+    }, []);
     return (
         <section className="landing">
             <div className="landing-inner">

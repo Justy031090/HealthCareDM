@@ -11,7 +11,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
         const {
             userLogin: { userInfo },
         } = getState();
-
+        console.log(userInfo);
         dispatch({
             type: USER_DETAILS_REQUEST,
         });

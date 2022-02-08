@@ -11,6 +11,7 @@ export const getMyProfile = async (req, res) => {
             return res.status(400).send([{ msg: 'Profile not Found' }]);
         res.send(profile);
     } catch (error) {
+        console.log(error);
         res.status(500).send('Server Error');
     }
 };
