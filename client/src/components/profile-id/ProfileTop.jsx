@@ -7,7 +7,7 @@ const ProfileTop = ({ profile }) => {
             <img
                 className="round-img"
                 src={profile?.user?.avatar}
-                alt="Not Found"
+                alt="My Profile Pic"
             />
             <h1 className="large">
                 {profile?.user?.firstName} {profile?.user?.lastName}

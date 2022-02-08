@@ -44,7 +44,6 @@ export const getPosts = () => async (dispatch, getState) => {
 };
 
 export const addLike = (id) => async (dispatch, getState) => {
-    console.log('hi from addLike');
     try {
         const {
             userLogin: { userInfo },
@@ -56,6 +55,7 @@ export const addLike = (id) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.put(`/api/post/like/${id}`, {}, config);
+        console.log(data);
         dispatch({
             type: UPDATE_LIKES,
             payload: { id, likes: data },

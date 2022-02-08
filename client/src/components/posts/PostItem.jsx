@@ -3,8 +3,6 @@ import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLike, removeLike } from '../../actions/postsAction';
 
-// import { useEffect } from 'react';
-
 const PostItem = ({ post }) => {
     const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin);
@@ -50,7 +48,7 @@ const PostItem = ({ post }) => {
                     Discussion
                     {post?.comments.length > 0 && (
                         <span className="comment-count">
-                            {post?.comments?.length}
+                            {post?.comments.length}
                         </span>
                     )}
                 </Link>
