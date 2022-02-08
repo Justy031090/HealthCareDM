@@ -1,18 +1,11 @@
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addLike, removeLike } from '../../actions/postsAction';
+// import { useEffect } from 'react';
 
 const PostItem = ({ post }) => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        console.log(post);
-    });
-
-    const postState = useSelector((state) => state.post);
-    const { posts, loading } = postState;
-
+    // const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
@@ -35,11 +28,21 @@ const PostItem = ({ post }) => {
                 <p className="post-date">
                     {moment(post?.createdAt).format('MMMM Do YYYY, h:mm a')}
                 </p>
-                <button type="button" className="btn btn-light">
-                    <i className="fas fa-thumbs-up"></i>
-                    <span>{post?.likes?.length}</span>
+                <button
+                    type="button"
+                    className="btn btn-light"
+                    onClick={addLike(post._id)}
+                >
+                    <i className="fas fa-thumbs-up"></i>{' '}
+                    {post?.likes.length > 0 && (
+                        <span>{post?.likes?.length}</span>
+                    )}
                 </button>
-                <button type="button" className="btn btn-light">
+                <button
+                    type="button"
+                    className="btn btn-light"
+                    onClick={removeLike(post._id)}
+                >
                     <i className="fas fa-thumbs-down"></i>
                 </button>
                 <Link to={`/post/${post?._id}`} className="btn btn-primary">

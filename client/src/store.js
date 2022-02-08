@@ -21,8 +21,8 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null;
 const userProfileFromStorage = localStorage.getItem('userProfile')
-    ? JSON.parse(localStorage.getItem('userInfo'))
-    : {};
+    ? JSON.parse(localStorage.getItem('userProfile'))
+    : null;
 
 const initialState = {
     userLogin: { userInfo: userInfoFromStorage },

@@ -5,7 +5,7 @@ import './profile-page.css';
 const ProfileItem = ({ profile }) => {
     const { user, status, location, company } = profile;
     return (
-        <div className="profiles-page">
+        <div className="profiles-page bg-white">
             <img src={user.avatar} alt="Not Found" className="round-img" />
             <div>
                 <h2>

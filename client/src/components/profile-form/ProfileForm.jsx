@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { createUpdateProfile } from '../../actions/userDetailsAction';
@@ -44,8 +44,39 @@ const ProfileForm = () => {
     } = formData;
 
     const dispatch = useDispatch();
+
     const userDetails = useSelector((state) => state.userDetails);
-    const { loading } = userDetails;
+    const { loading, profile } = userDetails;
+
+    useEffect(() => {
+        setFormData({
+            company: loading || !profile.company ? '' : profile.company,
+            status: loading || !profile.status ? '' : profile.status,
+            linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+            youtube: loading || !profile.social ? '' : profile.social.youtube,
+            instagram:
+                loading || !profile.social ? '' : profile.social.instagram,
+            facebook: loading || !profile.social ? '' : profile.social.facebook,
+            twitter: loading || !profile.social ? '' : profile.social.twitter,
+            school: loading || !profile.school ? '' : profile.school,
+            degree: loading || !profile.degree ? '' : profile.degree,
+            fieldOfStudy:
+                loading || !profile.fieldOfStudy ? '' : profile.fieldOfStudy,
+            description:
+                loading || !profile.description ? '' : profile.description,
+            insulinSensitivity:
+                loading || !profile.bolusWizzard
+                    ? ''
+                    : profile.bolusWizzard.insulinSensitivity,
+            insulinCarbRatio:
+                loading || !profile.bolusWizzard
+                    ? ''
+                    : profile.bolusWizzard.insulinCarbRatio,
+            website: loading || !profile.website ? '' : profile.website,
+            location: loading || !profile.location ? '' : profile.location,
+            bio: loading || !profile.bio ? '' : profile.bio,
+        });
+    }, [loading, profile]);
 
     const submitForm = (e) => {
         e.preventDefault();

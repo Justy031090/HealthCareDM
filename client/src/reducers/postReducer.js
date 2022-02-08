@@ -1,8 +1,13 @@
-import { REQUEST_POSTS, GET_POSTS, ERROR_POSTS } from '../constants/posts';
+import {
+    REQUEST_POSTS,
+    GET_POSTS,
+    ERROR_POSTS,
+    UPDATE_LIKES,
+    LIKE_ERROR,
+} from '../constants/posts';
 const initialState = {
     posts: [],
     post: [],
-    error: {},
 };
 
 export const getPostsReducer = (state = initialState, action) => {
@@ -13,7 +18,18 @@ export const getPostsReducer = (state = initialState, action) => {
         case GET_POSTS:
             return { loading: false, posts: payload };
         case ERROR_POSTS:
-            return { loading: false, error: payload };
+            return { loading: false };
+        case UPDATE_LIKES:
+            return {
+                ...state,
+                posts: state.posts.map((post) =>
+                    post._id === payload.postId
+                        ? { ...post, likes: payload.likes }
+                        : post
+                ),
+            };
+        case LIKE_ERROR:
+            return { loading: false };
         default:
             return state;
     }

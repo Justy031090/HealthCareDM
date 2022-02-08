@@ -5,13 +5,32 @@ import {
     USER_DETAILS_SUCCESS,
 } from '../constants/userDetails';
 
+// let profile = {
+//     company: '',
+//     status: '',
+//     linkedin: '',
+//     youtube: '',
+//     instagram: '',
+//     facebook: '',
+//     twitter: '',
+//     school: '',
+//     degree: '',
+//     fieldOfStudy: '',
+//     description: '',
+//     insulinSensitivity: '',
+//     insulinCarbRatio: '',
+//     website: '',
+//     location: '',
+//     bio: '',
+// };
+
 export const userDetailsReducer = (state = { profile: {} }, action) => {
     const { type, payload } = action;
     switch (type) {
         case USER_DETAILS_REQUEST:
             return { ...state, loading: true };
         case USER_DETAILS_SUCCESS:
-            return { loading: false, profile: payload };
+            return { ...state, loading: false, profile: payload };
         case USER_DETAILS_FAIL:
             return { loading: false, error: payload };
         case CLEAR_PROFILE:

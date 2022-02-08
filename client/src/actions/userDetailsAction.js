@@ -21,7 +21,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        const { data } = await axios.get('/api/profile/me', {}, config);
+        const { data } = await axios.get('/api/profile/me', config);
         dispatch({
             type: USER_DETAILS_SUCCESS,
             payload: data,

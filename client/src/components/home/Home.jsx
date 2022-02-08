@@ -1,7 +1,15 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getUserDetails } from '../../actions/userDetailsAction';
+import { useDispatch } from 'react-redux';
 import './home.css';
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUserDetails());
+    });
     return (
         <section className="landing">
             <div className="landing-inner">

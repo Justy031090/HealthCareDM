@@ -17,6 +17,8 @@
     align-items: center;
     padding: 1rem;
     margin: 1rem, 0;
+    text-align: left;
+    margin-top: 0.3rem;
 }
 .post > div:first-child {
     text-align: center;
