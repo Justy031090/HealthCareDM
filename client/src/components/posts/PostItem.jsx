@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
-import { addLike, removeLike } from '../../actions/postsAction';
+import { addLike, removeLike, deletePost } from '../../actions/postsAction';
 
 const PostItem = ({ post }) => {
     const dispatch = useDispatch();
@@ -53,7 +53,11 @@ const PostItem = ({ post }) => {
                     )}
                 </Link>
                 {userInfo._id === post.user && (
-                    <button type="button" className="btn btn-danger">
+                    <button
+                        type="button"
+                        className="btn btn-danger"
+                        onClick={() => dispatch(deletePost(post._id))}
+                    >
                         <i className="fas fa-times"></i>
                     </button>
                 )}

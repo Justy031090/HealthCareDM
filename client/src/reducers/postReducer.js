@@ -4,6 +4,7 @@ import {
     ERROR_POSTS,
     UPDATE_LIKES,
     LIKE_ERROR,
+    DELETE_POST,
 } from '../constants/posts';
 const initialState = {
     posts: [],
@@ -15,10 +16,16 @@ export const getPostsReducer = (state = initialState, action) => {
     switch (type) {
         case REQUEST_POSTS:
             return { loading: true };
+        case DELETE_POST:
+            return {
+                ...state,
+                posts: state.posts.filter((post) => post._id !== payload),
+                loading: false,
+            };
         case GET_POSTS:
-            return { loading: false, posts: payload };
+            return { ...state, loading: false, posts: payload };
         case ERROR_POSTS:
-            return { loading: false };
+            return { ...state, loading: false };
         case UPDATE_LIKES:
             return {
                 ...state,

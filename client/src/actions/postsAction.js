@@ -6,6 +6,7 @@ import {
     REQUEST_POSTS,
     UPDATE_LIKES,
     LIKE_ERROR,
+    DELETE_POST,
 } from '../constants/posts';
 
 export const getPosts = () => async (dispatch, getState) => {
@@ -102,6 +103,39 @@ export const removeLike = (id) => async (dispatch, getState) => {
 
         dispatch({
             type: LIKE_ERROR,
+        });
+    }
+};
+
+export const deletePost = (id) => async (dispatch, getState) => {
+    try {
+        const {
+            userLogin: { userInfo },
+        } = getState();
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        };
+        await axios.delete(`/api/post/${id}`, config);
+
+        dispatch({
+            type: DELETE_POST,
+            payload: id,
+        });
+        dispatch(setAlert('Post has been deleted', 'success', 1500));
+    } catch (error) {
+        const errors = await error.response?.data;
+        if (errors) {
+            errors.forEach((error) => {
+                dispatch(setAlert(error.msg, 'danger'));
+            });
+        }
+
+        dispatch({
+            type: ERROR_POSTS,
         });
     }
 };
