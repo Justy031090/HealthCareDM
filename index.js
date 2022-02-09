@@ -6,7 +6,7 @@ import users from './routes/userRoute.js';
 import auth from './routes/authRoute.js';
 import post from './routes/postRoute.js';
 import profile from './routes/profileRoute.js';
-import path from 'path';
+import * as path from 'path.js';
 
 dotenv.config();
 
