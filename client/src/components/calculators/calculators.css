@@ -35,7 +35,7 @@ ul li::before {
     width: 1rem;
     margin-left: -1rem;
 }
-.form-group {
+.form-group.calculator input {
     border: 1px solid var(--primary-color);
 }
 .calculator-form {

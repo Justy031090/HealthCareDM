@@ -135,7 +135,7 @@ const BolusWizzard = () => {
                 <h3 className="large text-primary">Bolus Calculator</h3>
                 {showCalculator ? (
                     <form className="form" onSubmit={(e) => handleSubmit(e)}>
-                        <div className="form-group">
+                        <div className="form-group calculator">
                             <input
                                 type="number"
                                 min={0}
@@ -149,7 +149,7 @@ const BolusWizzard = () => {
                                 The baseline of our calculator is 100 mg/dl
                             </small>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group calculator">
                             <input
                                 type="number"
                                 min={0}
@@ -163,7 +163,7 @@ const BolusWizzard = () => {
                                 Your total planned meal Carbs in grams
                             </small>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group calculator">
                             <input
                                 type="number"
                                 min={0}
@@ -187,7 +187,7 @@ const BolusWizzard = () => {
                                 a physician
                             </small>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group calculator">
                             <input
                                 type="number"
                                 min={0}
