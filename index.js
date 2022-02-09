@@ -16,7 +16,6 @@ app.use(cors());
 
 connectDB();
 
-//define routes
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/post', post);
