@@ -36,7 +36,8 @@ const BolusWizzard = () => {
                     ? ''
                     : profile.bolusWizzard.insulinCarbRatio,
         });
-    }, [loading, profile, bolusWiz]);
+    }, [loading, profile]);
+
     const onChange = (e) => {
         setBolusWiz({ ...bolusWiz, [e.target.name]: e.target.value });
     };
