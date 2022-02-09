@@ -25,17 +25,7 @@ const BolusWizzard = () => {
     const { loading, profile } = userDetails;
 
     useEffect(() => {
-        setBolusWiz({
-            ...bolusWiz,
-            insulinSensitivity:
-                loading || !profile.bolusWizzard
-                    ? ''
-                    : profile.bolusWizzard.insulinSensitivity,
-            insulinCarbRatio:
-                loading || !profile.bolusWizzard
-                    ? ''
-                    : profile.bolusWizzard.insulinCarbRatio,
-        });
+        setBolusWiz(initialState);
     }, [loading, profile]);
 
     const onChange = (e) => {
