@@ -10,3 +10,4 @@ export { default as Profiles } from './profiles/Profiles';
 export { default as Forum } from './forum/Forum';
 export { default as ProfileById } from './profile-id/ProfileById';
 export { default as Posts } from './posts/Posts';
+export { default as Post } from './post/Post';

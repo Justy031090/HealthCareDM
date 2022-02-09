@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/postsAction';
 
-const PostItem = ({ post }) => {
+const PostItem = ({ post, showActions }) => {
     const dispatch = useDispatch();
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
@@ -11,7 +11,7 @@ const PostItem = ({ post }) => {
     return (
         <div className="post bg-white">
             <div>
-                <Link to="">
+                <Link to={`/profiles/${post?.user}`}>
                     <img
                         className="round-img"
                         src={post?.avatar}
@@ -27,43 +27,52 @@ const PostItem = ({ post }) => {
                 <p className="post-date">
                     {moment(post?.createdAt).format('MMMM Do YYYY, h:mm a')}
                 </p>
-                <button
-                    type="button"
-                    className="btn btn-light"
-                    onClick={() => dispatch(addLike(post._id))}
-                >
-                    <i className="fas fa-thumbs-up"></i>{' '}
-                    {post?.likes.length > 0 && (
-                        <span>{post?.likes?.length}</span>
-                    )}
-                </button>
-                <button
-                    type="button"
-                    className="btn btn-light"
-                    onClick={() => dispatch(removeLike(post._id))}
-                >
-                    <i className="fas fa-thumbs-down"></i>
-                </button>
-                <Link to={`/post/${post?._id}`} className="btn btn-primary">
-                    Discussion
-                    {post?.comments.length > 0 && (
-                        <span className="comment-count">
-                            {post?.comments.length}
-                        </span>
-                    )}
-                </Link>
-                {userInfo._id === post.user && (
-                    <button
-                        type="button"
-                        className="btn btn-danger"
-                        onClick={() => dispatch(deletePost(post._id))}
-                    >
-                        <i className="fas fa-times"></i>
-                    </button>
+                {showActions && (
+                    <>
+                        <button
+                            type="button"
+                            className="btn btn-light"
+                            onClick={() => dispatch(addLike(post._id))}
+                        >
+                            <i className="fas fa-thumbs-up"></i>{' '}
+                            {post?.likes.length > 0 && (
+                                <span>{post?.likes?.length}</span>
+                            )}
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-light"
+                            onClick={() => dispatch(removeLike(post._id))}
+                        >
+                            <i className="fas fa-thumbs-down"></i>
+                        </button>
+                        <Link
+                            to={`/forum/posts/${post?._id}`}
+                            className="btn btn-primary"
+                        >
+                            Discussion
+                            {post?.comments.length > 0 && (
+                                <span className="comment-count">
+                                    {post?.comments.length}
+                                </span>
+                            )}
+                        </Link>
+                        {userInfo._id === post.user && (
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={() => dispatch(deletePost(post._id))}
+                            >
+                                <i className="fas fa-times"></i>
+                            </button>
+                        )}
+                    </>
                 )}
             </div>
         </div>
     );
 };
-
+PostItem.defaultProps = {
+    showActions: true,
+};
 export default PostItem;

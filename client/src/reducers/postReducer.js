@@ -5,6 +5,10 @@ import {
     UPDATE_LIKES,
     LIKE_ERROR,
     DELETE_POST,
+    ADD_POST,
+    GET_SINGLE_POST,
+    ADD_COMMENT,
+    REMOVE_COMMENT,
 } from '../constants/posts';
 const initialState = {
     posts: [],
@@ -22,10 +26,18 @@ export const getPostsReducer = (state = initialState, action) => {
                 posts: state.posts.filter((post) => post._id !== payload),
                 loading: false,
             };
+        case ADD_POST:
+            return {
+                ...state,
+                posts: [payload, ...state.posts],
+                loading: false,
+            };
         case GET_POSTS:
             return { ...state, loading: false, posts: payload };
         case ERROR_POSTS:
             return { ...state, loading: false };
+        case GET_SINGLE_POST:
+            return { ...state, loading: false, post: payload };
         case UPDATE_LIKES:
             return {
                 ...state,
@@ -34,6 +46,23 @@ export const getPostsReducer = (state = initialState, action) => {
                         ? { ...post, likes: payload.likes }
                         : post
                 ),
+            };
+        case ADD_COMMENT:
+            return {
+                ...state,
+                loading: false,
+                post: { ...state.post, comments: payload },
+            };
+        case REMOVE_COMMENT:
+            return {
+                ...state,
+                loading: false,
+                post: {
+                    ...state.post,
+                    comments: state.post.comments.filter(
+                        (comment) => comment._id !== payload
+                    ),
+                },
             };
         case LIKE_ERROR:
             return { ...state, loading: false };

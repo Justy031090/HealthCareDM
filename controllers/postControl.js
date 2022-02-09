@@ -20,7 +20,7 @@ export const createPost = async (req, res) => {
 };
 export const getPosts = async (req, res) => {
     try {
-        const posts = await Post.find().sort({ date: -1 });
+        const posts = await Post.find().sort({ createdAt: -1 });
         res.send(posts);
     } catch (error) {
         res.status(500).send([{ msg: 'Server Error' }]);
