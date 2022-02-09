@@ -6,7 +6,11 @@ import users from './routes/userRoute.js';
 import auth from './routes/authRoute.js';
 import post from './routes/postRoute.js';
 import profile from './routes/profileRoute.js';
-import * as path from 'path';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
