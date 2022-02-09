@@ -14,6 +14,8 @@ import {
     Forum,
     Posts,
     Post,
+    BolusWizzard,
+    CalculatorsMain,
 } from './components/';
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
                 <Route path="/forum/posts" element={<Posts />} />
                 <Route path="/forum/posts/:id" element={<Post />} />
                 <Route path="/update-profile" element={<ProfileForm />} />
+                <Route path="/calculators" element={<CalculatorsMain />} />
+                <Route path="/calculators/bolus" element={<BolusWizzard />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

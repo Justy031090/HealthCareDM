@@ -186,8 +186,8 @@ const ProfileForm = () => {
                                 onChange={(e) => handleChange(e)}
                             />
                             <small className="form-text">
-                                You can provide us the Insulin Sensitivity for
-                                better calculations
+                                Valid Insulin Sensitivity Factor (ISF) given by
+                                a physician
                             </small>
                         </div>
                         <div className="form-group">
@@ -200,8 +200,8 @@ const ProfileForm = () => {
                                 onChange={(e) => handleChange(e)}
                             />
                             <small className="form-text">
-                                You can provide us the Insulin-Card Ratio for
-                                better calculations
+                                Valid Insulin to Carb Ratio (ICR) given by a
+                                physician
                             </small>
                         </div>
                     </div>

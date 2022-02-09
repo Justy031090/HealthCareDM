@@ -1,0 +1,65 @@
+.bolus-wizzard-container {
+    color: var(--dark-color);
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+ul li {
+    margin-top: 0.5rem;
+}
+ul {
+    list-style: none;
+}
+ul li::before {
+    content: '•';
+    color: orangered;
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+}
+.li-2 {
+    margin-left: 2rem;
+}
+.ul-2 li::before {
+    content: '○';
+    color: orangered;
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+}
+.form-group {
+    border: 1px solid var(--primary-color);
+}
+.calculator-form {
+    box-sizing: border-box;
+    padding: 0;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border: 3px solid var(--primary-color);
+}
+.calculator-form small {
+    text-align: center;
+}
+.form-text.danger {
+    color: red;
+}
+
+.calculator-redirect {
+    color: var(--primary-color);
+}
+.btn {
+    margin-bottom: 1rem;
+}
