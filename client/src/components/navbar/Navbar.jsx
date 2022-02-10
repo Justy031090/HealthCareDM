@@ -83,6 +83,7 @@ const Navbar = () => {
                 >
                     <Link to="/calculators/bolus">Bolus Calculator</Link>
                     <Link to="/calculators/bmi">BMI Calculator</Link>
+                    <Link to="/calculators/bmr">BMR Calculator</Link>
                 </div>
             </div>
 

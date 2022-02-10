@@ -30,7 +30,6 @@ const BMI = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(weight, height);
         const result = calculateBMI(weight, height);
         setCompute(result);
         setCategory(cat(result));

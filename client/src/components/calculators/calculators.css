@@ -1,5 +1,6 @@
 .bolus-wizzard-container,
-.bmi-container {
+.bmi-container,
+.bmr-container {
     color: var(--dark-color);
     height: 100%;
     width: 80%;
@@ -80,4 +81,8 @@ ul li::before {
 }
 .Overweight {
     color: rgb(187, 187, 44);
+}
+label {
+    margin-right: 1rem;
+    margin-left: 0.1rem;
 }

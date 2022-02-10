@@ -12,5 +12,5 @@ export { default as ProfileById } from './profile-id/ProfileById';
 export { default as Posts } from './posts/Posts';
 export { default as Post } from './post/Post';
 export { default as BolusWizzard } from './calculators/BolusWizzard';
-export { default as CalculatorsMain } from './calculators/CalculatorsMain';
 export { default as BMI } from './calculators/BMI';
+export { default as BMR } from './calculators/BMR';

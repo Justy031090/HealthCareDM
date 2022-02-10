@@ -15,8 +15,8 @@ import {
     Posts,
     Post,
     BolusWizzard,
-    CalculatorsMain,
     BMI,
+    BMR,
 } from './components/';
 
 function App() {
@@ -35,9 +35,9 @@ function App() {
                 <Route path="/forum/posts" element={<Posts />} />
                 <Route path="/forum/posts/:id" element={<Post />} />
                 <Route path="/update-profile" element={<ProfileForm />} />
-                <Route path="/calculators" element={<CalculatorsMain />} />
                 <Route path="/calculators/bolus" element={<BolusWizzard />} />
                 <Route path="/calculators/bmi" element={<BMI />} />
+                <Route path="/calculators/bmr" element={<BMR />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
