@@ -37,8 +37,38 @@ const BMR = () => {
         <div className="bmr-container">
             <h2 className="large text-primary">Basal Metabolic Rate</h2>
             <ul className="lead">
-                <li></li>
-                <li></li>
+                <li>
+                    Your Basal Metabolic Rate (BMR) is the number of calories
+                    you burn as your body performs basic (basal) life-sustaining
+                    function. Commonly also termed as Resting Metabolic Rate
+                    (RMR), which is the calories burned if you stayed in bed all
+                    day. In either case, many utilize the basal metabolic rate
+                    formula to calculate their body’s metabolism rate.
+                </li>
+                <li>
+                    Your BMR defines your basal metabolism rate which makes up
+                    about 60-70% of the calories we use (“burn” or expend). This
+                    includes the energy your body uses to maintain the basic
+                    function of your living and breathing body,<br></br>
+                    including:
+                    <ul className="ul-2">
+                        <li className="li-2">The beating of our heart</li>
+                        <li className="li-2"> Cell production</li>
+                        <li className="li-2">Respiration</li>
+                        <li className="li-2">
+                            maintenance of body temperature
+                        </li>
+                        <li className="li-2">
+                            The Circulation Nutrient processing
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    Your unique metabolism rate, or BMR, is influenced by a
+                    number of factors including age, weight, height, gender,
+                    environmental temperature, dieting, and exercise habits.
+                </li>
             </ul>
 
             <div className="calculator-form my-1">
