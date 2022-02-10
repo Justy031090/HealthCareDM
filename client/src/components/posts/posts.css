@@ -1,13 +1,9 @@
 .posts-container {
     color: var(--dark-color);
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
 }
 .post {
