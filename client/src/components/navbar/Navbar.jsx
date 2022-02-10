@@ -21,13 +21,16 @@ const Navbar = () => {
     const handleCalcMouseDown = () => {
         setCalcDropdown(false);
     };
-
+    const handleUserMouseDown = () => {
+        setUserDropdown(false);
+    };
     const handleCalcMouseEnter = () => {
         setCalcDropdown(true);
         setTimeout(handleCalcMouseDown, 4000);
     };
     const handleUserMouseEnter = () => {
         setUserDropdown(true);
+        setTimeout(handleUserMouseDown, 4000);
     };
     useEffect(() => {
         let calcHandler = (e) => {
@@ -58,15 +61,14 @@ const Navbar = () => {
     return (
         <nav className="navbar-container">
             <div className="logo">m.Care</div>
+
             <Link to="/">Home</Link>
             <Link to="/recipies">Recipies</Link>
-            <div
-                className="dropdown"
-                ref={calcRef}
-                onClick={() => setCalcDropdown(false)}
-            >
+            <Link to="/forum">Forum</Link>
+
+            <div className="dropdown" ref={calcRef}>
                 <button
-                    className="btn btn-primary"
+                    className="btn btn-primary center"
                     onClick={() => setCalcDropdown(true)}
                     onMouseOver={() => handleCalcMouseEnter()}
                 >
@@ -83,7 +85,6 @@ const Navbar = () => {
                     <Link to="/calculators/bmi">BMI Calculator</Link>
                 </div>
             </div>
-            <Link to="/forum">Forum</Link>
 
             {userInfo ? (
                 <div className={'user-info'} ref={userRef}>
@@ -110,14 +111,6 @@ const Navbar = () => {
                         </button>
                         <Link to="/profile">Profile</Link>
                     </div>
-                    {/* <div className="logout" onClick={logoutHandler}>
-                        {userInfo.firstName[0].toUpperCase() +
-                            userInfo.firstName.substring(1)}
-                        <small className="small">Logout(dropdown)</small>
-                    </div> */}
-                    {/* <div className="profile">
-                        <Link to="/profile">Profile</Link>
-                    </div> */}
                 </div>
             ) : (
                 <div className="login" onClick={() => navigate('/login')}>

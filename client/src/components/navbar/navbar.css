@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 .navbar-container {
-    width: 100%;
+    min-width: 0;
     border: none;
     display: flex;
     align-items: center;
@@ -9,10 +9,12 @@
     box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.5);
 }
 .navbar-container a {
+    display: block;
     color: white;
     text-align: center;
     margin: 0 3rem;
 }
+
 .navbar-container a:hover {
     color: orangered;
 }
@@ -68,6 +70,23 @@
     color: orangered;
 }
 
-.navbar-container :only-child(1) {
-    color: black;
+@media (max-width: 900px) {
+    .navbar-container {
+        flex-direction: column;
+    }
+    .user-info,
+    .dropdown {
+        margin: 0;
+    }
+    .navbar-container button {
+        margin: 1rem;
+        padding: 0;
+    }
+    .navbar-container a {
+        margin: 0.3rem;
+        padding: 0;
+    }
+    .logo {
+        display: none;
+    }
 }
