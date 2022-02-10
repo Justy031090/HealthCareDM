@@ -1,4 +1,5 @@
-.bolus-wizzard-container {
+.bolus-wizzard-container,
+.bmi-container {
     color: var(--dark-color);
     height: 100%;
     width: 80%;
@@ -62,4 +63,21 @@ ul li::before {
 }
 .btn {
     margin-bottom: 1rem;
+}
+.bmi-container .li-2 {
+    text-align: center;
+    font-size: 1.3rem;
+}
+.bmi-container .li-2:before {
+    content: '';
+}
+.Underweight,
+.Obesity {
+    color: red;
+}
+.Healthy {
+    color: green;
+}
+.Overweight {
+    color: rgb(187, 187, 44);
 }

@@ -16,6 +16,7 @@ import {
     Post,
     BolusWizzard,
     CalculatorsMain,
+    BMI,
 } from './components/';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/update-profile" element={<ProfileForm />} />
                 <Route path="/calculators" element={<CalculatorsMain />} />
                 <Route path="/calculators/bolus" element={<BolusWizzard />} />
+                <Route path="/calculators/bmi" element={<BMI />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
