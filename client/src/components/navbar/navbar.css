@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
-.navbar.container {
-    box-sizing: border-box;
+.navbar-container {
     width: 100%;
     border: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: var(--primary-color);
     box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.5);
 }
-.navbar.container a {
+.navbar-container a {
     color: white;
+    text-align: center;
+    margin: 0 3rem;
 }
-.navbar.container a:hover {
+.navbar-container a:hover {
     color: orangered;
 }
 .logo {
@@ -20,11 +21,11 @@
     font-family: 'Marck Script', cursive;
     font-size: 2rem;
     font-weight: bold;
-    margin-left: 0.5rem;
+    margin-left: 2rem;
 }
-
-.small {
-    display: block;
+.user-info {
+    margin-left: auto;
+    margin-right: 2rem;
 }
 
 .dropdown-content {
@@ -35,8 +36,38 @@
 }
 .dropdown-content a {
     display: block;
-    padding: 0.75rem;
+    margin: 0.75rem 0.4rem;
 }
+.user-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    text-align: center;
+    margin-left: 1rem;
+}
+.user-content a {
+    display: block;
+    margin: 0.75rem 0.4rem;
+}
+.user-content button {
+    display: block;
+    padding: 0 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .show {
     display: block;
+}
+.login {
+    margin-left: auto;
+    margin-right: 5rem;
+}
+.login:hover {
+    cursor: pointer;
+    color: orangered;
+}
+
+.navbar-container :only-child(1) {
+    color: black;
 }
