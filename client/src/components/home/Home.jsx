@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArticales } from '../../actions/articleActions';
@@ -26,19 +25,16 @@ const Home = () => {
                     <div className="grid-container">
                         {articles?.map((article) => {
                             return (
-                                <NewsFid key={article._id} article={article} />
+                                <div className="wrapper">
+                                    <NewsFid
+                                        key={article._id}
+                                        article={article}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
                 )}
-                <div>
-                    <Link to="/register" className="btn btn-primary">
-                        Sign Up
-                    </Link>
-                    <Link to="/login" className="btn btn-light">
-                        Login
-                    </Link>
-                </div>
             </div>
         </section>
     );
