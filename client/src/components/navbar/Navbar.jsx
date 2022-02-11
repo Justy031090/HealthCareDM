@@ -64,7 +64,8 @@ const Navbar = () => {
 
             <Link to="/">Home</Link>
             <Link to="/recipies">Recipies</Link>
-            <Link to="/forum">Forum</Link>
+            <Link to="/profiles">Community</Link>
+            <Link to="/forum/posts">Forum</Link>
 
             <div className="dropdown" ref={calcRef}>
                 <button
@@ -114,8 +115,16 @@ const Navbar = () => {
                     </div>
                 </div>
             ) : (
-                <div className="login" onClick={() => navigate('/login')}>
-                    Login
+                <div className="navbar-right">
+                    <div className="login" onClick={() => navigate('/login')}>
+                        Login
+                    </div>
+                    <div
+                        className="login"
+                        onClick={() => navigate('/register')}
+                    >
+                        Sign Up
+                    </div>
                 </div>
             )}
         </nav>

@@ -16,4 +16,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const article = await Article.findById(id);
+        res.send(article);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send([{ msg: 'Server Error' }]);
+    }
+});
+
 export default router;

@@ -1,0 +1,46 @@
+.article-container {
+    display: flex;
+    color: var(--dark-color);
+}
+.article {
+    width: 70%;
+    margin-left: 1rem;
+}
+.article-header {
+    text-align: center;
+}
+.date {
+    display: block;
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.article-summary {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+.article-subheader {
+    margin-top: 1rem;
+    color: var(--primary-color);
+}
+.article-paragraph {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.aside {
+    width: 30%;
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+
+.donations-header {
+    background-color: var(--success-color);
+    cursor: none;
+    margin-top: 5rem;
+}
+.donations-container {
+    margin: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--success-color);
+}

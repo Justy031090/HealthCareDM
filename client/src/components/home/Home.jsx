@@ -25,11 +25,8 @@ const Home = () => {
                     <div className="grid-container">
                         {articles?.map((article) => {
                             return (
-                                <div className="wrapper">
-                                    <NewsFid
-                                        key={article._id}
-                                        article={article}
-                                    />
+                                <div key={article._id} className="wrapper">
+                                    <NewsFid article={article} />
                                 </div>
                             );
                         })}

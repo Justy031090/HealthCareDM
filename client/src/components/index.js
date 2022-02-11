@@ -14,3 +14,4 @@ export { default as Post } from './post/Post';
 export { default as BolusWizzard } from './calculators/BolusWizzard';
 export { default as BMI } from './calculators/BMI';
 export { default as BMR } from './calculators/BMR';
+export { default as Article } from './article/Article';
