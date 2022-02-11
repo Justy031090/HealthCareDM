@@ -263,7 +263,9 @@ const BolusWizzard = () => {
                     </form>
                 ) : (
                     <>
-                        <h4>Bolus to give is {compute} Insulin Units</h4>
+                        <h4>
+                            Bolus to give is {compute.toFixed(2)} Insulin Units
+                        </h4>
                         <input
                             type="submit"
                             className="btn btn-primary"
