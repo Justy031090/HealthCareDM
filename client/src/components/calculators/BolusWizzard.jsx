@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './calculators.css';
 
 const initialState = {
@@ -8,17 +7,20 @@ const initialState = {
     insulinCarbRatio: '',
     totalMealCarbs: '',
     glucoseBloodTest: '',
+    dailyDosage: '',
 };
 
 const BolusWizzard = () => {
     const [compute, setCompute] = useState(null);
     const [showCalculator, setShowCalculator] = useState(true);
+    const [isKnown, setIsKnown] = useState(false);
     const [bolusWiz, setBolusWiz] = useState(initialState);
     const {
         totalMealCarbs,
         insulinCarbRatio,
         insulinSensitivity,
         glucoseBloodTest,
+        dailyDosage,
     } = bolusWiz;
 
     const userDetails = useSelector((state) => state.userDetails);
@@ -42,12 +44,20 @@ const BolusWizzard = () => {
 
     const onChange = (e) => {
         setBolusWiz({ ...bolusWiz, [e.target.name]: e.target.value });
+        console.log(dailyDosage);
     };
 
     const totalBolus = () => {
         const tofix = glucoseBloodTest - 100;
         const mealBolus = totalMealCarbs / insulinCarbRatio;
-        const fixBolus = tofix / insulinSensitivity;
+        let fixBolus;
+
+        if (dailyDosage) {
+            fixBolus = tofix / (1800 / dailyDosage);
+        } else {
+            fixBolus = tofix / insulinSensitivity;
+        }
+
         const totalBolus = fixBolus + mealBolus;
         return totalBolus;
     };
@@ -57,6 +67,10 @@ const BolusWizzard = () => {
         setCompute(result);
         setShowCalculator(!showCalculator);
         setBolusWiz(initialState);
+    };
+    const redirectCalculator = () => {
+        setBolusWiz(initialState);
+        setIsKnown(!isKnown);
     };
 
     return (
@@ -163,34 +177,66 @@ const BolusWizzard = () => {
                                 Your total planned meal Carbs in grams
                             </small>
                         </div>
-                        <div className="form-group calculator">
-                            <input
-                                type="number"
-                                min={0}
-                                placeholder="Insulin Sensetivity Factor"
-                                name="insulinSensitivity"
-                                required
-                                value={insulinSensitivity}
-                                onChange={(e) => onChange(e)}
-                            />
-                            <Link to="/calculators/isf">
+                        {isKnown ? (
+                            <div className="form-group calculator">
+                                <input
+                                    type="number"
+                                    min={1}
+                                    placeholder="Insulin Sensetivity Factor"
+                                    name="insulinSensitivity"
+                                    required
+                                    value={insulinSensitivity}
+                                    onChange={(e) => onChange(e)}
+                                />
+
                                 <small className="form-text">
                                     Dont know your ISF but know your daily
                                     dosage ?
-                                    <i className="calculator-redirect">
+                                    <i
+                                        className="calculator-redirect"
+                                        onClick={(e) => redirectCalculator()}
+                                    >
                                         Click Here
                                     </i>
                                 </small>
-                            </Link>
-                            <small className="form-text danger">
-                                Valid Insulin Sensitivity Factor (ISF) given by
-                                a physician
-                            </small>
-                        </div>
+
+                                <small className="form-text danger">
+                                    Valid Insulin Sensitivity Factor (ISF) given
+                                    by a physician
+                                </small>
+                            </div>
+                        ) : (
+                            <div className="form-group calculator">
+                                <input
+                                    type="number"
+                                    min={0}
+                                    placeholder="Your daily insulin dosage"
+                                    name="dailyDosage"
+                                    required
+                                    value={dailyDosage}
+                                    onChange={(e) => onChange(e)}
+                                />
+
+                                <small className="form-text">
+                                    Know your insulin sensitivity ?
+                                    <i
+                                        className="calculator-redirect"
+                                        onClick={(e) => redirectCalculator()}
+                                    >
+                                        Click Here
+                                    </i>
+                                </small>
+
+                                <small className="form-text danger">
+                                    Your daily average insulin dosage will be
+                                    used to calculate average ISR.
+                                </small>
+                            </div>
+                        )}
                         <div className="form-group calculator">
                             <input
                                 type="number"
-                                min={0}
+                                min={1}
                                 placeholder="Insulin to Carb Ratio"
                                 name="insulinCarbRatio"
                                 required

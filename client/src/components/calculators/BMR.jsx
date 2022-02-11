@@ -6,11 +6,13 @@ const BMR = () => {
         weight: '',
         gender: '',
         age: '',
+        activity: '',
     });
 
-    const { height, weight, age, gender } = measure;
+    const { height, weight, age, gender, activity } = measure;
     const [showCalculator, setShowCalculator] = useState(true);
     const [calculate, setCalculate] = useState(null);
+    const [tdee, setTdee] = useState(null);
 
     const onChange = (e) => {
         setMeasure({ ...measure, [e.target.name]: e.target.value });
@@ -29,6 +31,9 @@ const BMR = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setCalculate(calculateBMR(age, gender, weight, height));
+        if (activity) {
+            setTdee(calculateBMR(age, gender, weight, height) * activity);
+        }
 
         setShowCalculator(!showCalculator);
     };
@@ -69,6 +74,13 @@ const BMR = () => {
                     number of factors including age, weight, height, gender,
                     environmental temperature, dieting, and exercise habits.
                 </li>
+                <li>
+                    TDEE stands for total daily energy expenditure. It is the
+                    total energy that a person uses in a day. TDEE is hard to
+                    measure accurately and varies day by day. More often, it is
+                    estimated using factors such as a person's basal metabolic
+                    rate (BMR), activity level, and the thermic effect of food.
+                </li>
             </ul>
 
             <div className="calculator-form my-1">
@@ -95,6 +107,40 @@ const BMR = () => {
                                 <label htmlFor="gender">Female</label>
                                 <small className="form-text">
                                     Select your gender
+                                </small>
+                            </div>
+                            <div className="form-group">
+                                <select
+                                    className="bmr-select"
+                                    name="activity"
+                                    value={activity}
+                                    onChange={(e) => onChange(e)}
+                                >
+                                    <optgroup>
+                                        <option value={0}>
+                                            Select Your Activity
+                                        </option>
+                                        <option value={1.2}>
+                                            Sedetary : Little or no exercise
+                                        </option>
+                                        <option value={1.375}>
+                                            Light: exercise 1-3 times/week
+                                        </option>
+                                        <option value={1.55}>
+                                            Moderate: exercise 4-5 times/week
+                                        </option>
+                                        <option value={1.725}>
+                                            Active: daily exercise or intense
+                                            exercise 6-7 times/week
+                                        </option>
+                                        <option value={1}>
+                                            Extra active: very intense exercise
+                                            daily, or physical job
+                                        </option>
+                                    </optgroup>
+                                </select>
+                                <small className="form-text">
+                                    Give us an idea of your position
                                 </small>
                             </div>
                             <input
@@ -146,7 +192,20 @@ const BMR = () => {
                     </form>
                 ) : (
                     <>
-                        <h4>{calculate}</h4>
+                        {activity > 0 ? (
+                            <h4>
+                                You daily calories burn in rest are{' '}
+                                {Math.floor(calculate)}, according to your
+                                activity level the total burned calories are{' '}
+                                {Math.floor(tdee)}
+                            </h4>
+                        ) : (
+                            <h4>
+                                You daily calories burn in rest are{' '}
+                                {Math.floor(calculate)}, to calculate TDEE
+                                please select activity level.
+                            </h4>
+                        )}
                         <input
                             type="submit"
                             className="btn btn-primary"

@@ -104,3 +104,28 @@ a {
 hr {
     color: black;
 }
+.round-img {
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+ul {
+    list-style: none;
+}
+@media (max-width: 800px) {
+    input::-webkit-input-placeholder {
+        font-size: 13px;
+    }
+    input[type='radio'] {
+        display: block;
+    }
+    label {
+        display: flex;
+    }
+    optgroup {
+        font-size: 10px;
+    }
+    select {
+        white-space: pre-wrap;
+        text-rendering: auto;
+    }
+}

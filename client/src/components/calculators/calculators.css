@@ -18,7 +18,7 @@
 .bolus-wizzard-container ul {
     list-style: none;
 }
-.bolus-wizzard-container ul li::before {
+ul li::before {
     content: '•';
     color: orangered;
     font-weight: bold;
@@ -61,6 +61,7 @@
 
 .calculator-redirect {
     color: var(--primary-color);
+    cursor: pointer;
 }
 .btn {
     margin-bottom: 1rem;
@@ -69,9 +70,7 @@
     text-align: center;
     font-size: 1.3rem;
 }
-.bmi-container .li-2:before {
-    content: '';
-}
+
 .Underweight,
 .Obesity {
     color: red;
