@@ -80,7 +80,7 @@ const BolusWizzard = () => {
     return (
         <div className="bolus-wizzard-container">
             <h2 className="large text-primary">Calculating Bolus Injections</h2>
-            {loading && <div>Loading...</div>}
+            {loading && <div className="loader"></div>}
 
             <ul className="lead">
                 <li>

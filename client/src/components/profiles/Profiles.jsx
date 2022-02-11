@@ -15,7 +15,7 @@ const Profiles = () => {
     return (
         <div className="profiles-container">
             {loading ? (
-                <div>Loading...</div>
+                <div className="loader"></div>
             ) : (
                 <div>
                     <h2 className="large text-primary">Our Community</h2>

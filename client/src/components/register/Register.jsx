@@ -46,7 +46,7 @@ const Register = () => {
     return (
         <div className="register-container">
             <h2 className="large text-primary">Sign Up</h2>
-            {loading && <div>Loading...</div>}
+            {loading && <div className="loader"></div>}
             <p className="lead">
                 <i className="fas fa-user"></i> Create Your Account
             </p>

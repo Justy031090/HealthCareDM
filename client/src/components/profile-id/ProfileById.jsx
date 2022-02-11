@@ -23,7 +23,7 @@ const ProfileById = () => {
     return (
         <div className="profile-container">
             {profiles === null || loading ? (
-                <div>Loading...</div>
+                <div className="loader"></div>
             ) : (
                 <div className="info-container">
                     <div className="profile-grid">

@@ -20,7 +20,7 @@ const Home = () => {
                 <h2 className="x-large">Healthcare DM</h2>
                 <p className="lead">because we care about you</p>
                 {loading ? (
-                    <div>Loading...</div>
+                    <div className="loader"></div>
                 ) : (
                     <div className="grid-container">
                         {articles?.map((article) => {

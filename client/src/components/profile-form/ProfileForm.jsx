@@ -91,7 +91,7 @@ const ProfileForm = () => {
     return (
         <section className="create-profile-container">
             <h2 className="large text-primary">Update Your Profile</h2>
-            {loading && <div>Loading...</div>}
+            {loading && <div className="loader"></div>}
             <p className="lead">
                 <i className="fas fa-user"></i> Let's get some information to
                 make people know you better

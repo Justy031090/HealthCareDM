@@ -1,4 +1,5 @@
 import User from '../models/userModel.js';
+import Profile from '../models/profileModel.js';
 import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
@@ -35,6 +36,7 @@ export const registerUser = async (req, res) => {
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: '30d',
         });
+
         res.json({
             _id: user._id,
             firstName: user.firstName,
@@ -43,6 +45,27 @@ export const registerUser = async (req, res) => {
             isAdmin: user.isAdmin,
             token,
         });
+
+        const profileFields = {
+            user: user._id,
+            company: '',
+            status: '',
+            linkedin: '',
+            youtube: '',
+            instagram: '',
+            facebook: '',
+            twitter: '',
+            fieldOfStudy: '',
+            description: '',
+            insulinCarbRatio: '',
+            insulinSensitivity: '',
+            website: '',
+            location: '',
+            bio: '',
+        };
+
+        let profile = new Profile(profileFields);
+        await profile.save();
     } catch (error) {
         res.status(500).send('Server Error');
     }

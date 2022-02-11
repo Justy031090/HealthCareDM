@@ -26,7 +26,7 @@ const Profile = () => {
         <div className="profile-container">
             <div className="info-container">
                 {profile === null || loading ? (
-                    <div>Loading...</div>
+                    <div className="loader"></div>
                 ) : (
                     <div className="profile-grid">
                         <ProfileTop profile={profile} />

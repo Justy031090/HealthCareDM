@@ -22,7 +22,7 @@ const Posts = () => {
     }, [navigate, dispatch, userInfo]);
 
     return loading ? (
-        <div>Loading...</div>
+        <div className="loader"></div>
     ) : (
         <div className="posts-container">
             <h2 className="large text-primary">Posts</h2>

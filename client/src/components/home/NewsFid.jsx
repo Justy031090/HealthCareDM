@@ -12,7 +12,10 @@ const NewsFid = ({ article }) => {
             <p>{article.summary}</p>
 
             <div className="bottom">
-                <Link to="/posts" className="btn btn-primary">
+                <Link
+                    to={`/articles/${article._id}`}
+                    className="btn btn-primary"
+                >
                     Read More
                 </Link>
                 <div className="line"></div>

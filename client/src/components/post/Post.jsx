@@ -17,7 +17,7 @@ const Post = () => {
     }, [dispatch, params]);
 
     return loading || post === null ? (
-        <div>Loading...</div>
+        <div className="loader"></div>
     ) : (
         <>
             <Link to="/forum/posts" className="btn btn-dark my-1">

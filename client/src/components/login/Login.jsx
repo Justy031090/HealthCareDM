@@ -37,7 +37,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <h2 className="large text-primary">Sign In</h2>
-            {loading && <div>Loading...</div>}
+            {loading && <div className="loader"></div>}
             <p className="lead">
                 <i className="fas fa-user"></i> Sign Into Your Account
             </p>
