@@ -7,6 +7,7 @@ import { userRegisterReducer } from './reducers/registerReducer';
 import { userDetailsReducer } from './reducers/userDetailsReducer';
 import { getProfilesReducer } from './reducers/profilesReducer';
 import { getPostsReducer } from './reducers/postReducer';
+import { articleReducer } from './reducers/articleReducer';
 
 const reducer = combineReducers({
     alerts: alertReducer,
@@ -15,6 +16,7 @@ const reducer = combineReducers({
     userDetails: userDetailsReducer,
     profiles: getProfilesReducer,
     post: getPostsReducer,
+    articles: articleReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

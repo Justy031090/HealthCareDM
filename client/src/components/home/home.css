@@ -1,17 +1,17 @@
 /* Landing Page */
 .landing {
-    height: 80vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .landing-inner {
     color: var(--dark-color);
     height: 100%;
     width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 2rem;
     text-align: center;
 }
 .x-large {
@@ -23,4 +23,27 @@
 }
 .btn-light {
     background-color: #c4c1c1;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid-item {
+    margin: 1rem;
+    text-align: left;
+}
+.grid-item h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: 0rem;
+    text-align: center;
+    color: rgb(10, 110, 209);
+}
+.grid-item p {
+    font-size: 0.75rem;
+    margin-top: auto;
+}
+.grid-item img {
+    width: 100%;
+    max-height: 200px;
 }

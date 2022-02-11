@@ -13,7 +13,7 @@ const initialState = {
 const BolusWizzard = () => {
     const [compute, setCompute] = useState(null);
     const [showCalculator, setShowCalculator] = useState(true);
-    const [isKnown, setIsKnown] = useState(false);
+    const [isKnown, setIsKnown] = useState(true);
     const [bolusWiz, setBolusWiz] = useState(initialState);
     const {
         totalMealCarbs,
@@ -44,7 +44,11 @@ const BolusWizzard = () => {
 
     const onChange = (e) => {
         setBolusWiz({ ...bolusWiz, [e.target.name]: e.target.value });
-        console.log(dailyDosage);
+    };
+
+    const handleBack = () => {
+        setShowCalculator(!showCalculator);
+        setBolusWiz(initialState);
     };
 
     const totalBolus = () => {
@@ -264,7 +268,7 @@ const BolusWizzard = () => {
                             type="submit"
                             className="btn btn-primary"
                             value="Back"
-                            onClick={(e) => setShowCalculator(true)}
+                            onClick={() => handleBack()}
                         />
                     </>
                 )}
