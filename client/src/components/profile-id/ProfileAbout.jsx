@@ -17,10 +17,10 @@ const ProfileAbout = ({ profile }) => {
             <h2 className="text-primary">Education</h2>
             <div className="education">
                 <div>
-                    <i className="fa fa-check"></i> hardcoded education
+                    <i className="fa fa-check"></i> education
                 </div>
                 <div>
-                    <i className="fa fa-check"></i>more hardcoded education
+                    <i className="fa fa-check"></i>education
                 </div>
             </div>
         </div>

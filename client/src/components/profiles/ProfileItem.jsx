@@ -19,7 +19,7 @@ const ProfileItem = ({ profile }) => {
                 </Link>
             </div>
             <ul>
-                <li>HARDCODED EDUCATION</li>
+                <li>EDUCATION</li>
             </ul>
         </div>
     );
