@@ -22,7 +22,7 @@ const Home = () => {
                 {loading ? (
                     <div className="loader"></div>
                 ) : (
-                    <div className="grid-container">
+                    <div className="grid-container-recipes">
                         {recipes?.map((recipe) => {
                             return (
                                 <div key={recipe._id} className="wrapper">

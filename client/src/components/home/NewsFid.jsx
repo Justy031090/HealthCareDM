@@ -14,7 +14,7 @@ const NewsFid = ({ article }) => {
             <div className="bottom">
                 <Link
                     to={`/articles/${article._id}`}
-                    className="btn btn-primary"
+                    className="btn btn-primary grid-link"
                 >
                     Read More
                 </Link>

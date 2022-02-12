@@ -17,3 +17,80 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+.grid-container-recipes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.prep-symbol {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    margin: 0.2rem;
+}
+.prep-symbol img {
+    display: block;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+}
+.prep-right {
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.prep-left {
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.fas.fa-clock {
+    color: rgb(64, 175, 64);
+    padding-right: 0.2rem;
+}
+.wrapper {
+    border-radius: 8px;
+}
+.nutrions-container {
+    display: flex;
+    margin: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+.kcal,
+.carbs,
+.sugars {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background-color: lightgray;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+    padding: 1.5rem 2rem;
+}
+.top {
+    width: 100%;
+    text-align: center;
+}
+.recipe-link {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.recipe-image {
+    cursor: pointer;
+}
+
+@media (max-width: 950px) {
+    .grid-container-recipes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 650px) {
+    .grid-container-recipes {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
