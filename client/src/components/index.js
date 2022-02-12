@@ -15,3 +15,5 @@ export { default as BolusWizzard } from './calculators/BolusWizzard';
 export { default as BMI } from './calculators/BMI';
 export { default as BMR } from './calculators/BMR';
 export { default as Article } from './article/Article';
+export { default as Recipes } from './recipes/Recipes';
+export { default as RecipeById } from './recipes/RecipeById';

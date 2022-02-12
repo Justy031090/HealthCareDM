@@ -18,6 +18,8 @@ import {
     BMI,
     BMR,
     Article,
+    Recipes,
+    RecipeById,
 } from './components/';
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
                 <Route path="/calculators/bmi" element={<BMI />} />
                 <Route path="/calculators/bmr" element={<BMR />} />
                 <Route path="/articles/:id" element={<Article />} />
+                <Route path="/recipes" element={<Recipes />} />
+                <Route path="/recipes/:id" element={<RecipeById />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

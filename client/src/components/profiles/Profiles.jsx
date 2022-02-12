@@ -21,7 +21,7 @@ const Profiles = () => {
                     <h2 className="large text-primary">Our Community</h2>
                     <p className="lead">Find The Leading Proffesionals</p>
                     <div className="profiles">
-                        {profiles.length > 0 ? (
+                        {profiles?.length > 0 ? (
                             profiles.map((profile) => {
                                 return (
                                     <ProfileItem

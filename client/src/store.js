@@ -7,8 +7,8 @@ import { userRegisterReducer } from './reducers/registerReducer';
 import { userDetailsReducer } from './reducers/userDetailsReducer';
 import { getProfilesReducer } from './reducers/profilesReducer';
 import { getPostsReducer } from './reducers/postReducer';
-import { articleReducer } from './reducers/articleReducer';
-import { articleById } from './reducers/articleReducer';
+import { articleReducer, articleById } from './reducers/articleReducer';
+import { recipesReducer, recipeByIdReducer } from './reducers/recipeReducer';
 
 const reducer = combineReducers({
     alerts: alertReducer,
@@ -19,6 +19,8 @@ const reducer = combineReducers({
     post: getPostsReducer,
     articles: articleReducer,
     article: articleById,
+    recipes: recipesReducer,
+    recipe: recipeByIdReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

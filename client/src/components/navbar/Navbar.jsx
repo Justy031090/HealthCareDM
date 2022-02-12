@@ -63,7 +63,7 @@ const Navbar = () => {
             <div className="logo">m.Care</div>
 
             <Link to="/">Home</Link>
-            <Link to="/recipies">Recipies</Link>
+            <Link to="/recipes">Recipes</Link>
             <Link to="/profiles">Community</Link>
             <Link to="/forum/posts">Forum</Link>
 

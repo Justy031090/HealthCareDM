@@ -98,11 +98,12 @@ export const getProfileById = async (req, res) => {
             'lastName',
             'avatar',
         ]);
-        if (!profile) return res.status(400).send('Profile Is Empty');
+        if (!profile)
+            return res.status(400).send([{ msg: 'Profile Not Found' }]);
         res.send(profile);
     } catch (error) {
         if (error.kind === 'ObjectId') {
-            return res.status(400).send('Profile not Found');
+            return res.status(400).send([{ msg: 'Profile not Found' }]);
         }
         res.status(500).send('Server Error');
     }
@@ -111,9 +112,10 @@ export const deleteProfileAndUser = async (req, res) => {
     try {
         const profile = await Profile.findOneAndRemove({ user: req.user.id });
         const user = await User.findOneAndRemove({ _id: req.user.id });
-        if (!profile && !user) return res.status(404).send('User Not Found');
-        res.send('Succesfully Deleted');
+        if (!profile && !user)
+            return res.status(404).send([{ msg: 'User Not Found' }]);
+        res.send([{ msg: 'Succesfully Deleted' }]);
     } catch (error) {
-        res.status(500).send('Server Error');
+        res.status(500).send([{ msg: 'Server Error' }]);
     }
 };
