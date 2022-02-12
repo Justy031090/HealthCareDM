@@ -97,15 +97,18 @@
 }
 .recipe-page-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    margin: 1.5rem;
+    margin: 2rem;
 }
 .recipe-page-img {
     width: 70%;
+    max-height: 400px;
 }
 .recipe-page-top-right {
     width: 30%;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 .kCal-flex,
 .carbs-flex,
@@ -127,19 +130,57 @@
 }
 .nutrient-box {
     margin: 0.2rem;
-    text-align: center;
+    text-align: left;
 }
 .serving-size {
     font-size: 1.5rem;
     color: var(--primary-color);
 }
+.serves,
+.prep {
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
 .recipe-page-nutrions {
     margin: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
+.recipe-page-bottom {
+    display: flex;
+}
+.recipe-page-methods {
+    width: 70%;
+    border-left: 1px solid #ccc;
+    margin-left: 0.4rem;
+}
+.recipe-page-ingredients {
+    margin-top: 2.5rem;
+    text-align: left;
+    margin-right: 1rem;
+}
+.methods {
+    text-align: left;
+    margin-left: 2rem;
+    padding-left: 2rem;
+
+    margin-top: 3rem;
+}
+.ingredient-box {
+    text-align: left;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+.step-number {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+.ingredients-header {
+    color: var(--primary-color);
+}
+
 @media (max-width: 1200px) {
     .grid-container-recipes {
         grid-template-columns: repeat(3, 1fr);
@@ -149,9 +190,31 @@
     .grid-container-recipes {
         grid-template-columns: repeat(2, 1fr);
     }
+    .recipe-page-top-right {
+        font-size: 0.75rem;
+    }
+    .recipe-page-nutrions {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     .grid-container-recipes {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .recipe-page-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    .prep,
+    .serves {
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    .recipe-page-nutrions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .recipe-page-top-right {
+        font-size: 1rem;
     }
 }

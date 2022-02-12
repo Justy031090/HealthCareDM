@@ -40,9 +40,11 @@ const RecipeById = () => {
                     <div className="recipe-page-top">
                         <img src={img} alt="" className="recipe-page-img" />
                         <div className="recipe-page-top-right">
-                            <span className="recipe-page-description">
-                                {description}
-                            </span>
+                            <div className="description">
+                                <span className="recipe-page-description">
+                                    {description}
+                                </span>
+                            </div>
                             <div className="line"></div>
                             <div className="serves">
                                 <i class="fas fa-utensils"></i>{' '}
@@ -64,44 +66,84 @@ const RecipeById = () => {
                                     <div className="nutrient-box">
                                         {nutrient.kCal && (
                                             <span className="kCal-flex">
-                                                kCal: {nutrient.kCal}
+                                                kCal:
+                                                <br /> {nutrient.kCal}
                                             </span>
                                         )}
                                         {nutrient.carbs && (
                                             <span className="carbs-flex">
-                                                Carbs: {nutrient.carbs}
+                                                Carbs: <br />
+                                                {nutrient.carbs}
                                             </span>
                                         )}
                                         {nutrient.fibre && (
                                             <span className="fibre-flex">
-                                                Fibre: {nutrient.fibre}
+                                                Fibre:
+                                                <br /> {nutrient.fibre}
                                             </span>
                                         )}
                                         {nutrient.protein && (
                                             <span className="protein-flex">
-                                                Protein: {nutrient.protein}
+                                                Protein:
+                                                <br /> {nutrient.protein}
                                             </span>
                                         )}
                                         {nutrient.fat && (
                                             <span className="fat-flex">
-                                                Fat: {nutrient.fat}
+                                                Fat: <br />
+                                                {nutrient.fat}
                                             </span>
                                         )}
                                         {nutrient.saturates && (
                                             <span className="saturates-flex">
-                                                Saturates: {nutrient.saturates}
+                                                Saturates:
+                                                <br /> {nutrient.saturates}
                                             </span>
                                         )}
                                         {nutrient.sugars && (
                                             <span className="sugars-flex">
-                                                Sugars: {nutrient.sugars}
+                                                Sugars:
+                                                <br /> {nutrient.sugars}
                                             </span>
                                         )}
                                         {nutrient.salt && (
                                             <span className="salt-flex">
-                                                Salt: {nutrient.salt}
+                                                Salt: <br />
+                                                {nutrient.salt}
                                             </span>
                                         )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    <div className="recipe-page-bottom">
+                        <div className="recipe-page-ingredients">
+                            <h2 className="ingredients-header">Ingredients</h2>
+                            {ingredients.map((ingredient, index) => {
+                                return (
+                                    <>
+                                        <div
+                                            key={index}
+                                            className="ingredient-box"
+                                        >
+                                            {ingredient}
+                                        </div>
+                                        <div className="line"></div>
+                                    </>
+                                );
+                            })}
+                        </div>
+                        <div className="recipe-page-methods">
+                            {preparations_steps.map((step, index) => {
+                                return (
+                                    <div key={index} className="methods">
+                                        <span className="step-number">
+                                            Step {index + 1}
+                                        </span>
+                                        <br />
+                                        <p>{step}</p>
                                     </div>
                                 );
                             })}
