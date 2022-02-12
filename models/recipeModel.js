@@ -43,6 +43,10 @@ const recipeSchema = mongoose.Schema(
             trim: true,
         },
         serving_size: {
+            type: String,
+            required: true,
+        },
+        number_of_serves: {
             type: Number,
             required: true,
         },

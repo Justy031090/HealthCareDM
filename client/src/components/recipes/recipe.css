@@ -46,7 +46,8 @@
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
-.fas.fa-clock {
+.fas.fa-clock,
+.fas.fa-utensils {
     color: rgb(64, 175, 64);
     padding-right: 0.2rem;
 }
@@ -61,7 +62,12 @@
 }
 .kcal,
 .carbs,
-.sugars {
+.sugars,
+.fibre,
+.protein,
+.fat,
+.saturates,
+.salt {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     background-color: lightgray;
@@ -83,7 +89,49 @@
 .recipe-image {
     cursor: pointer;
 }
+.recipe-page-container {
+    color: var(--dark-color);
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+.recipe-page-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.kCal-flex,
+.carbs-flex,
+.sugars-flex,
+.fibre-flex,
+.protein-flex,
+.fat-flex,
+.saturates-flex,
+.salt-flex {
+    display: block;
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+}
+.recipe-page-center {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.nutrient-box {
+    margin: 0.2rem;
+    text-align: center;
+}
+.recipe-page-nutrions {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 @media (max-width: 950px) {
     .grid-container-recipes {
         grid-template-columns: repeat(2, 1fr);
