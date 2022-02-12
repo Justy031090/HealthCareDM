@@ -91,7 +91,7 @@ const Navbar = () => {
             {userInfo ? (
                 <div className={'user-info'} ref={userRef}>
                     <button
-                        className="btn btn-primary"
+                        className="btn btn-primary center"
                         onClick={() => setUserDropdown(true)}
                         onMouseOver={() => handleUserMouseEnter()}
                     >

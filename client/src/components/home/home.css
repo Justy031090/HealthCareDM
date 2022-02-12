@@ -84,6 +84,9 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+    .grid-item p {
+        line-height: 1rem;
+    }
 }
 @media (max-width: 650px) {
     .grid-container {

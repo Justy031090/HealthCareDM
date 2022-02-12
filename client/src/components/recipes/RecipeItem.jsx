@@ -31,9 +31,18 @@ const RecipeItem = ({ recipe }) => {
                 </div>
             </div>
             <div className="nutrions-container">
-                <div className="kcal">kCal {nutrions[0].kCal}</div>
-                <div className="carbs">Carbs {nutrions[1].carbs}</div>
-                <div className="carbs">Sugars {nutrions[6].sugars}</div>
+                <div className="kcal">
+                    kCal <br />
+                    {nutrions[0].kCal}
+                </div>
+                <div className="carbs">
+                    Carbs <br />
+                    {nutrions[1].carbs}
+                </div>
+                <div className="carbs">
+                    Sugars <br />
+                    {nutrions[6].sugars}
+                </div>
             </div>
         </div>
     );

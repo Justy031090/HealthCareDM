@@ -28,6 +28,7 @@ const RecipeById = () => {
     useEffect(() => {
         dispatch(getRecipeById(params.id));
     }, [dispatch, params]);
+    console.log(sybmols, cook_time, preparations_steps, ingredients);
 
     return (
         <div className="recipe-page-container">
@@ -54,49 +55,51 @@ const RecipeById = () => {
                         </div>
                     </div>
                     <div className="recipe-page-center">
-                        <span>Each {serving_size} serving contains :</span>
+                        <span className="serving-size">
+                            Each {serving_size} serving contains :
+                        </span>
                         <div className="recipe-page-nutrions">
                             {nutrions.map((nutrient) => {
                                 return (
                                     <div className="nutrient-box">
                                         {nutrient.kCal && (
                                             <span className="kCal-flex">
-                                                {nutrient.kCal}
+                                                kCal: {nutrient.kCal}
                                             </span>
                                         )}
                                         {nutrient.carbs && (
                                             <span className="carbs-flex">
-                                                {nutrient.carbs}
+                                                Carbs: {nutrient.carbs}
                                             </span>
                                         )}
                                         {nutrient.fibre && (
                                             <span className="fibre-flex">
-                                                {nutrient.fibre}
+                                                Fibre: {nutrient.fibre}
                                             </span>
                                         )}
                                         {nutrient.protein && (
                                             <span className="protein-flex">
-                                                {nutrient.protein}
+                                                Protein: {nutrient.protein}
                                             </span>
                                         )}
                                         {nutrient.fat && (
                                             <span className="fat-flex">
-                                                {nutrient.fat}
+                                                Fat: {nutrient.fat}
                                             </span>
                                         )}
                                         {nutrient.saturates && (
                                             <span className="saturates-flex">
-                                                {nutrient.saturates}
+                                                Saturates: {nutrient.saturates}
                                             </span>
                                         )}
                                         {nutrient.sugars && (
                                             <span className="sugars-flex">
-                                                {nutrient.sugars}
+                                                Sugars: {nutrient.sugars}
                                             </span>
                                         )}
                                         {nutrient.salt && (
                                             <span className="salt-flex">
-                                                {nutrient.salt}
+                                                Salt: {nutrient.salt}
                                             </span>
                                         )}
                                     </div>
