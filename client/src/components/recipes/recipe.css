@@ -18,6 +18,7 @@
 .grid-container-recipes {
     display: grid;
     grid-template-columns: repeat(4, fit-content(25%));
+    gap: 1rem;
 }
 
 .prep-symbol {
@@ -37,12 +38,14 @@
     display: flex;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    border: none;
 }
 
 .prep-left {
     margin-top: 0.4rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    border: none;
 }
 .fas.fa-clock,
 .fas.fa-utensils {
@@ -51,6 +54,7 @@
 }
 .wrapper {
     border-radius: 8px;
+    height: 100%;
 }
 .nutrions-container {
     display: flex;

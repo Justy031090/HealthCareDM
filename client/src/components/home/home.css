@@ -27,12 +27,13 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 .grid-item {
     text-align: left;
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-content: baseline;
     position: relative;
@@ -42,6 +43,7 @@
     font-weight: bold;
     text-align: center;
     color: rgb(10, 110, 209);
+    margin-bottom: auto;
 }
 
 .grid-item p {
