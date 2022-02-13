@@ -13,7 +13,6 @@ const RecipeById = () => {
 
     const {
         header,
-        sybmols,
         img,
         serving_size,
         number_of_serves,
@@ -28,7 +27,6 @@ const RecipeById = () => {
     useEffect(() => {
         dispatch(getRecipeById(params.id));
     }, [dispatch, params]);
-    console.log(sybmols, cook_time, preparations_steps, ingredients);
 
     return (
         <div className="recipe-page-container">
@@ -53,6 +51,8 @@ const RecipeById = () => {
                             <div className="prep">
                                 <i className="fas fa-clock"></i>
                                 <span>Prep {preparation_time} minutes</span>
+                                <i className="fas fa-clock"></i>
+                                <span>Coock {cook_time} minutes</span>
                             </div>
                         </div>
                     </div>
