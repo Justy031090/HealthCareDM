@@ -18,7 +18,7 @@ const Home = () => {
         <section className="landing">
             <div className="landing-inner">
                 <h2 className="x-large">Healthcare DM</h2>
-                <p className="lead">because we care about you</p>
+                <h2 className="large text-primary">What's new ?</h2>
                 {loading ? (
                     <div className="loader"></div>
                 ) : (
